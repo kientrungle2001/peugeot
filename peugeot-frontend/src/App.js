@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { * } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 import logo from './logo.svg';
 import './App.css';
