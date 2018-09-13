@@ -9,7 +9,9 @@ class App extends Component {
   render() {
     return (
       <section id="header-main">
-        
+        <div class="container">
+          Hello
+        </div>
       </section>
     );
   }
