@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <section id="header-main">
-        <Container>
+        <Container class="header">
           Hello
         </Container>
       </section>
