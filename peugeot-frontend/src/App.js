@@ -1,38 +1,63 @@
 import React, { Component } from 'react';
-import { Container, Alert } from 'reactstrap';
 
-import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data:
+        [
+          {
+            "id": 1,
+            "name": "Foo",
+            "age": "20"
+          },
+          {
+            "id": 2,
+            "name": "Bar",
+            "age": "30"
+          },
+          {
+            "id": 3,
+            "name": "Baz",
+            "age": "40"
+          }
+        ]
+    }
+  }
   render() {
     return (
-      <section id="header-main">
-        <Container className="header">
-          <Hello />
-          <Hello2 />
-          <Alert>Hello</Alert>
-
-        </Container>
-      </section>
+      <div>
+        <Header />
+        <table>
+          <tbody>
+            {this.state.data.map((person, i) => <TableRow key={i}
+              data={person} />)}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
-
-class Hello extends Component {
+class Header extends React.Component {
   render() {
     return (
-      <h1>Header</h1>
+      <div>
+        <h1>Header</h1>
+      </div>
     );
   }
 }
-
-class Hello2 extends Component {
+class TableRow extends React.Component {
   render() {
     return (
-      <h1>Header 2</h1>
+      <tr>
+        <td>{this.props.data.id}</td>
+        <td>{this.props.data.name}</td>
+        <td>{this.props.data.age}</td>
+      </tr>
     );
   }
 }
-
 export default App;
