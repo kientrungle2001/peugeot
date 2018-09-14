@@ -30,7 +30,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <table>
+        <table className="table">
           <tbody>
             {this.state.data.map((person, i) => <TableRow key={i}
               data={person} />)}
