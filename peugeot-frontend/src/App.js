@@ -9,9 +9,19 @@ class App extends Component {
     return (
       <section id="header-main">
         <Container className="header">
+          <Hello />
           <Alert>Hello</Alert>
+
         </Container>
       </section>
+    );
+  }
+}
+
+class Hello extends Component {
+  render() {
+    return (
+      <h1>Header</h1>
     );
   }
 }
