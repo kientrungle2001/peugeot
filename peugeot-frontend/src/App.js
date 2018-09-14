@@ -10,6 +10,7 @@ class App extends Component {
       <section id="header-main">
         <Container className="header">
           <Hello />
+          <Hello2 />
           <Alert>Hello</Alert>
 
         </Container>
@@ -22,6 +23,14 @@ class Hello extends Component {
   render() {
     return (
       <h1>Header</h1>
+    );
+  }
+}
+
+class Hello2 extends Component {
+  render() {
+    return (
+      <h1>Header 2</h1>
     );
   }
 }
