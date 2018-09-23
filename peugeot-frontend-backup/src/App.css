@@ -1,0 +1,39 @@
+.navbar-trans {
+  background: transparent !important; 
+}
+#bannerSection {
+  background: url('/images/home-banner.jpg');
+  background-size: 100% auto;
+  height: 800px;
+  position: relative;
+}
+
+#bannerSection #search-bar {
+  position: absolute;
+  bottom: 15px;
+}
+
+#topSection {
+  background: #333;
+}
+#top-bar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#topSection #top-bar {
+  background: #000;
+}
+
+#top-nav {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+#main-menu .nav-link {
+  color:#f8f9fa!important;
+  padding-right: 25px;
+}
+.logo-img {
+  width: 150px;
+  height: auto;
+}
