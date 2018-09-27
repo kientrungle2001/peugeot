@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import {
-    Container,
     Row,
     Col,
     Button,
@@ -16,7 +15,7 @@ class Search extends Component {
             <section id="search-bar">
             <Row className="row-pd-0 bg-white row-eq-height text-white">
                 <Col className="bg-danger pt-1">
-                    <Button block color="danger" className="sharp" id="search-label"><img id="search-logo" src="/images/Logo_peugeot.png" /> PHỤ TÙNG PEUGEOT</Button>
+                    <Button block color="danger" className="sharp" id="search-label"><img id="search-logo" src="/images/Logo_peugeot.png" alt="img" /> PHỤ TÙNG PEUGEOT</Button>
                 </Col>
                 <Col>
                     <div className="pt-1 pb-1 pl-2 pr-2">

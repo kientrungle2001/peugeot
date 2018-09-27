@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import {
-    Container, Row, Col
+    Container
 } from 'reactstrap';
 import './Home.css';
 

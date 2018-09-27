@@ -4,14 +4,15 @@ import React, { Component } from 'react';
 import {
     Container
 } from 'reactstrap';
-import './About.css';
+import './Contact.css';
 
 import Topbar from '../Topbar/Topbar.js';
 import Menu from '../Menu/Menu.js';
 import Search from '../Search/Search.js';
 import FooterSection from '../FooterSection/FooterSection.js';
+import ContactForm from '../ContactForm/ContactForm.js';
 
-class About extends Component {
+class Contact extends Component {
     render() {
         return (
             <div>
@@ -25,10 +26,15 @@ class About extends Component {
                 <Container className="mt-3">
                     <Search />
                 </Container>
+                <section id="contact-section" className="mt-3">
+                    <Container>
+                        <ContactForm />
+                    </Container>
+                </section>
                 <FooterSection />
             </div>
         );
     }
 }
 
-export default About;
+export default Contact;

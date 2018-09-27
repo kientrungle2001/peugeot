@@ -16,14 +16,14 @@
 }
 
 #topSection {
-  background: #333;
+  background: #1a1f23;
 }
 #top-bar {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 #topSection #top-bar {
-  background: #000;
+  background: #14191c;
 }
 
 #top-nav {
@@ -68,8 +68,8 @@
   padding-right: 10px;
 }
 
-.sharp {
-  border-radius: 0;
+.sharp, .sharp .input-group-text, .sharp > .form-control {
+  border-radius: 0 !important;
 }
 
 .relative {

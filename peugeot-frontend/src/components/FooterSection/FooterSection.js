@@ -2,32 +2,25 @@ import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import {
-    Container,
-    Row,
-    Col
+    Container
 } from 'reactstrap';
 
 import PeugeotFooter from '../Footer/Footer.js';
 import Copyright from '../Copyright/Copyright.js';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-library.add(faEnvelope);
 
 class FooterSection extends Component {
 
     render() {
         return (
             <div>
-                <section id="footer">
+                <section id="footer" className="mt-3 text-light pt-3 pb-3">
                     <footer>
                         <Container>
                             <PeugeotFooter />
                         </Container>
                     </footer>
                 </section>
-                <section id="copyright">
+                <section id="copyright" className="p-3 text-light">
                     <Container>
                         <Copyright />
                     </Container>
