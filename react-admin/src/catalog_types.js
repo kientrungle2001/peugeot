@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Filter, List, Edit, Create,
-    Datagrid, TextField, EditButton, DisabledInput,
+    Datagrid, TextField, ReferenceField, EditButton, DisabledInput,
     SimpleForm, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 
@@ -22,8 +22,12 @@ export const CatalogTypeList = (props) => (
             <TextField source="name" label="Kiểu" />
             <TextField source="created_at" label="Ngày tạo" />
             <TextField source="updated_at" label="Ngày sửa" />
-            <TextField source="software_id" label="Phần mềm" />
-            <TextField source="site_id" label="Trang web" />
+            <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
+                <TextField source="title" />
+            </ReferenceField>
+            <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
+                <TextField source="title" />
+            </ReferenceField>
             <EditButton />
         </Datagrid>
     </List>
@@ -46,8 +50,12 @@ export const CatalogTypeEdit = (props) => (
                 <SelectInput optionText="name" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
             <TextInput source="parent_path" />
-            <TextInput source="site_id" />
-            <TextInput source="software_id" />
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
             <BooleanInput source="status" />
             <BooleanInput source="deleted" />
         </SimpleForm>
@@ -66,8 +74,12 @@ export const CatalogTypeCreate = (props) => (
                 <SelectInput optionText="name" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
             <TextInput source="parent_path" />
-            <TextInput source="site_id" />
-            <TextInput source="software_id" />
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
             <BooleanInput source="status" />
             <BooleanInput source="deleted" />
         </SimpleForm>

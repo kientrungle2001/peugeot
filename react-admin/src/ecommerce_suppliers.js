@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Filter, List, Edit, Create,
-    Datagrid, TextField, EditButton, DisabledInput, LongTextInput,
+    Datagrid, TextField, ReferenceField, EditButton, DisabledInput, LongTextInput,
     TabbedForm, FormTab, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
@@ -23,8 +23,12 @@ export const EcommerceSupplierList = (props) => (
             <TextField source="title" label="Tiêu đề" />
             <TextField source="created_at" label="Ngày tạo" />
             <TextField source="updated_at" label="Ngày sửa" />
-            <TextField source="software_id" label="Phần mềm" />
-            <TextField source="site_id" label="Trang web" />
+            <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
+                <TextField source="title" />
+            </ReferenceField>
+            <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
+                <TextField source="title" />
+            </ReferenceField>
             <EditButton />
         </Datagrid>
     </List>
@@ -58,8 +62,12 @@ export const EcommerceSupplierEdit = (props) => (
                 <TextInput source="type" />
                 <TextInput source="label" />
                 <TextInput source="link" />
-                <TextInput source="site_id" />
-                <TextInput source="software_id" />
+                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                    <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+                </ReferenceInput>
+                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                    <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+                </ReferenceInput>
                 <BooleanInput source="deleted" />
             </FormTab>
             {/*
@@ -109,8 +117,12 @@ export const EcommerceSupplierCreate = (props) => (
                 <TextInput source="type" />
                 <TextInput source="label" />
                 <TextInput source="link" />
-                <TextInput source="site_id" />
-                <TextInput source="software_id" />
+                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                    <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+                </ReferenceInput>
+                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                    <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+                </ReferenceInput>
                 <BooleanInput source="deleted" />
             </FormTab>
         </TabbedForm>

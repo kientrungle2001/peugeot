@@ -1,8 +1,8 @@
 import React from 'react';
 import {
     Filter, List, Edit, Create,
-    Datagrid, TextField, EditButton, DisabledInput, LongTextInput,
-    SimpleForm, TextInput, ReferenceInput, SelectInput, BooleanInput
+    Datagrid, TextField, ReferenceField, EditButton, DisabledInput, LongTextInput,
+    SimpleForm, TextInput, ReferenceInput, SelectInput, BooleanInput, ImageInput, ImageField
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 
@@ -22,8 +22,12 @@ export const CatalogCategoryList = (props) => (
             <TextField source="title" label="Tiêu đề" />
             <TextField source="created_at" label="Ngày tạo" />
             <TextField source="updated_at" label="Ngày sửa" />
-            <TextField source="software_id" label="Phần mềm" />
-            <TextField source="site_id" label="Trang web" />
+            <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
+                <TextField source="title" />
+            </ReferenceField>
+            <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
+                <TextField source="title" />
+            </ReferenceField>
             <EditButton />
         </Datagrid>
     </List>
@@ -32,24 +36,44 @@ export const CatalogCategoryList = (props) => (
 const CatalogCategoryTitle = ({ record }) => {
     return <span>Danh mục: {record ? `"${record.title}"` : ''}</span>;
 };
+var toolbar = [
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block'],
 
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+    [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    ['clean', 'image']                                         // remove formatting button
+];
 export const CatalogCategoryEdit = (props) => (
     <Edit title={<CatalogCategoryTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
             <TextInput source="alias" />
             <LongTextInput source="brief" />
-            <RichTextInput source="content" />
+            <RichTextInput source="content" toolbar={toolbar} />
             <BooleanInput source="deleted" />
-            <TextInput source="image" />
+            <ImageInput source="pictures" multiple={true} label="Related pictures" accept="image/*" placeholder={<p>Drop your file here</p>}>
+                <ImageField source="src" title="title" />
+            </ImageInput>
             <TextInput source="label" />
             <TextInput source="link" />
             <ReferenceInput label="Parent" source="parent_id" reference="catalog_categories" allowEmpty={true}>
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
             <TextInput source="parent_path" />
-            <TextInput source="site_id" />
-            <TextInput source="software_id" />
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
             <TextInput source="source" />
             <BooleanInput source="status" />
             <TextInput source="tags" />
@@ -65,17 +89,23 @@ export const CatalogCategoryCreate = (props) => (
         <SimpleForm>
             <TextInput source="alias" />
             <LongTextInput source="brief" />
-            <RichTextInput source="content" />
+            <RichTextInput source="content" toolbar={toolbar}/>
             <BooleanInput source="deleted" />
-            <TextInput source="image" />
+            <ImageInput source="pictures" multiple={true} label="Related pictures" accept="image/*" placeholder={<p>Drop your file here</p>}>
+                <ImageField source="src" title="title" />
+            </ImageInput>
             <TextInput source="label" />
             <TextInput source="link" />
             <ReferenceInput label="Parent" source="parent_id" reference="catalog_categories" allowEmpty={true}>
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
             <TextInput source="parent_path" />
-            <TextInput source="site_id" />
-            <TextInput source="software_id" />
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
             <TextInput source="source" />
             <BooleanInput source="status" />
             <TextInput source="tags" />
