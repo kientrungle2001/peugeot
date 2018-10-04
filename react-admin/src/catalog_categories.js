@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Filter, List, Edit, Create,
     Datagrid, TextField, ReferenceField, EditButton, DisabledInput, LongTextInput,
-    SimpleForm, TextInput, ReferenceInput, SelectInput, BooleanInput, ImageInput, ImageField
+    SimpleForm, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 
@@ -11,7 +11,9 @@ const CatalogCategoryFilter = (props) => (
         <TextInput label="Search" source="q" alwaysOn />
         <TextInput label="Software" source="software_id" />
         <TextInput label="Site" source="site_id" />
-        <TextInput label="CategoryId" source="category_id" />
+        <ReferenceInput label="Parent" source="parent_id" reference="catalog_categories" allowEmpty={true}>
+            <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+        </ReferenceInput>
     </Filter>
 );
 
@@ -20,6 +22,9 @@ export const CatalogCategoryList = (props) => (
         <Datagrid>
             <TextField source="id" />
             <TextField source="title" label="Tiêu đề" />
+            <ReferenceField label="Danh mục cha" source="parent_id" reference="catalog_categories">
+                <TextField source="title" />
+            </ReferenceField>
             <TextField source="created_at" label="Ngày tạo" />
             <TextField source="updated_at" label="Ngày sửa" />
             <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
@@ -59,9 +64,7 @@ export const CatalogCategoryEdit = (props) => (
             <LongTextInput source="brief" />
             <RichTextInput source="content" toolbar={toolbar} />
             <BooleanInput source="deleted" />
-            <ImageInput source="pictures" multiple={true} label="Related pictures" accept="image/*" placeholder={<p>Drop your file here</p>}>
-                <ImageField source="src" title="title" />
-            </ImageInput>
+            <TextInput source="image" />
             <TextInput source="label" />
             <TextInput source="link" />
             <ReferenceInput label="Parent" source="parent_id" reference="catalog_categories" allowEmpty={true}>
@@ -91,9 +94,7 @@ export const CatalogCategoryCreate = (props) => (
             <LongTextInput source="brief" />
             <RichTextInput source="content" toolbar={toolbar}/>
             <BooleanInput source="deleted" />
-            <ImageInput source="pictures" multiple={true} label="Related pictures" accept="image/*" placeholder={<p>Drop your file here</p>}>
-                <ImageField source="src" title="title" />
-            </ImageInput>
+            <TextInput source="image" />
             <TextInput source="label" />
             <TextInput source="link" />
             <ReferenceInput label="Parent" source="parent_id" reference="catalog_categories" allowEmpty={true}>

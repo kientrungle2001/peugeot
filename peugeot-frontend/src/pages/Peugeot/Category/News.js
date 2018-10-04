@@ -10,7 +10,7 @@ class PagePeugeotCategoryNews extends Component {
             <div className="category">
                 <ModulePeugeotHeaderInner />
                 <main role="main">
-                    <ModulePeugeotCmsPostNewsCategory categoryId={this.props.categoryId} type={this.props.type} />
+                    <ModulePeugeotCmsPostNewsCategory categoryId={this.props.categoryId} type={this.props.type} alias={this.props.alias} />
                     <ModulePeugeotFooter />
                 </main>
             </div>

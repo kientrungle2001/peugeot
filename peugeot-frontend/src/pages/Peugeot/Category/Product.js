@@ -10,7 +10,7 @@ class PagePeugeotCategoryProduct extends Component {
             <div className="category">
                 <ModulePeugeotHeaderInner />
                 <main role="main">
-                    <ModulePeugeotEcommerceProductCategory categoryId={this.props.categoryId} type={this.props.type} />
+                    <ModulePeugeotEcommerceProductCategory categoryId={this.props.categoryId} type={this.props.type} alias={this.props.alias} page={this.props.page} />
                     <ModulePeugeotFooter />
                 </main>
             </div>

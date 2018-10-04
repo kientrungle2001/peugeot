@@ -58,7 +58,7 @@ class ModulePeugeotMenu extends Component {
                                 this.state.items.map((item, i)=>{
                                     return (
                                         <li key={i} className={this.getActiveClass(item)}>
-                                            {item.link == '/' ? <a className="nav-link" href={item.link} title={item.title}>{item.title} </a>:<Link className="nav-link" to={item.link} title={item.title}>{item.title} </Link>}
+                                            {item.link == '/home' ? <a className="nav-link" href={item.link} title={item.title}>{item.title} </a>:<Link className="nav-link" to={item.link} title={item.title}>{item.title} </Link>}
                                         </li>
                                     );
                                 }) : ''

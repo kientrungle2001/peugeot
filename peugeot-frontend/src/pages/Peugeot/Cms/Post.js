@@ -8,7 +8,7 @@ class PagePeugeotCmsPost extends Component {
     
     render() {
         return (
-            <div class="category">
+            <div className="category">
                 <ModulePeugeotHeaderInner />
                 <main role="main">
                     <ModulePeugeotCmsPost itemId={this.props.itemId} />
