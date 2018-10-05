@@ -3,6 +3,7 @@ import Axios from 'axios';
 import {peugeot_api_url} from 'peugeot_constants';
 import chunk from 'chunk';
 import {Link} from 'react-router-dom';
+import formatCurrency from 'format-currency';
 
 class ModulePeugeotEcommerceProductCategoryList extends Component {
     componentWillMount() {
@@ -27,18 +28,18 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
         return (
             <div>
                 <div className="container list-products">
-                    {this.state && this.state.chunks && this.state.chunks.map(function(chunk, key) {
+                    {this.state && this.state.chunks && this.state.chunks.map((chunk, key) => {
                         return (
                             <div className="row" key={key}>
-                                {chunk.map(function(item, index) {
+                                {chunk.map((item, index) => {
                                     return (
                                         <div className={"col-md-3 col-6 text-center cate" + (index + 1)} key={index}>
                                             <img src="/img/product-1.png" alt="{item.title}" className="img-fluid" />
                                             <div className="info-product">
                                                 <p className="line-img-product"></p>
-                                                <a className="titleSP-product" href="#">8158CD592201<br />{item.title}</a>
+                                                <Link className="titleSP-product" to={"/product/" + item.type + "/" + this.props.categoryId + "/" + this.props.alias + "/" + item.id + "/" + item.alias}>{item.sku}<br />{item.title}</Link>
                                             </div>
-                                            <p className="price">Giá: Liên hệ</p>
+                                            <p className="price">Giá: {item.price ? formatCurrency(item.price) + (item.unit ? 'đ / ' + item.unit: '')  : 'Liên hệ'}</p>
                                         </div>
                                     );
                                 })}

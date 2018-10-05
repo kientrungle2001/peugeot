@@ -12,7 +12,7 @@
   src:url(/font/fontawesome-webfont.woff2) format("woff2");  
 }
 body {    
-  color: #5a5a5a;
+  color: #000;
 }
 header{  
   background-image: url('/img/bg_slide.jpg');
@@ -74,9 +74,6 @@ header{
 .cl-frm-search{
   height: 3em;
   line-height: 2em;
-}
-.cl-frm-search img {
-  width:30px; margin-right: 0.8rem
 }
 .form-inline.carousel-frm .row .form-group.col-md-3:first-child{
   padding: 0;
@@ -157,11 +154,6 @@ header{
 .no-of-item-dtl{
 	text-align: center;
 }
-
-.no-of-item-dtl img {
-  width:205px;
-}
-
 .owl-btn-style-2 .owl-nav .owl-prev,
 .owl-btn-style-1 .owl-nav .owl-prev,
 .owl-btn-style-2 .owl-nav .owl-next,
@@ -279,18 +271,18 @@ footer h4 {
   color: #86949c;
   padding-left: 15px;
 }
+.dlab-subscribe-form .site-button {
+  padding: 10px;
+}
 .site-button{
   background-color: #D81517;
-  color: #fff;
-  padding: 10px 20px;
-  display: inline-block;
-  font-size: 14px;
+  color: #fff; 
+  display: inline-block; 
   cursor: pointer;
   outline: 0;
   border-width: 0;
   border-style: solid;
   border-color: transparent;
-  line-height: 1.42857;
   font-weight: 400;
 }
 footer .widget_services ul li{
@@ -410,7 +402,7 @@ footer ul {
   position: absolute;
   text-align: center;
   top: 0;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   width: 55px;
   color: #fff;
   font-size: 26px;
@@ -482,11 +474,37 @@ footer ul {
 #panel {    
     display: none;
 }
-
-.dlab-new-work {
-  background-image: url(/img/bg1.jpg);
+/*Animation Button*/
+.site-button, .btn.button-cate {
+	position: relative;
+  z-index: 1;
+	overflow:hidden;
+}
+.site-button:hover:after,
+.site-button-secondry:hover:after, 
+.btn.button-cate:hover:after {
+	left: 5%;
+  width: 90%;
+}
+.site-button-secondry:after,
+.site-button:after,
+.btn.button-cate:after {
+    background-color: #ffffff;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    transform: skewX(25deg);
+    transition: all 0.5s ease 0s;
+    width: 0;
+    z-index: -1;
+}
+.img-responsive{
+  max-width: 100%;
 }
 
-.site-footer {
-  display: block; height: 604px;
+.max-width-140px {
+  max-width: 140px;
 }

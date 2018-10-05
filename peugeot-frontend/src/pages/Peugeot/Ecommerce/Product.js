@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ModulePeugeotHeaderInner from 'modules/Peugeot/Header/Inner';
 import ModulePeugeotFooter from 'modules/Peugeot/Footer/Footer';
-import ModulePeugeotEcommerceProductCategory from 'modules/Peugeot/Ecommerce/Product/Category';
+import ModulePeugeotEcommerceProduct from 'modules/Peugeot/Ecommerce/Product';
+import ModulePeugeotEcommerceProductRelated from 'modules/Peugeot/Ecommerce/Product/Related';
 import 'pages/Peugeot/Category/Category.css';
 class PagePeugeotEcommerceProduct extends Component {
 
@@ -10,7 +11,8 @@ class PagePeugeotEcommerceProduct extends Component {
             <div className="category">
                 <ModulePeugeotHeaderInner />
                 <main role="main">
-                    <ModulePeugeotEcommerceProductCategory categoryId={this.props.categoryId} type={this.props.type} />
+                    <ModulePeugeotEcommerceProduct productId={this.props.categoryId} type={this.props.type} />
+                    <ModulePeugeotEcommerceProductRelated productId={this.props.categoryId} type={this.props.type} />
                     <ModulePeugeotFooter />
                 </main>
             </div>

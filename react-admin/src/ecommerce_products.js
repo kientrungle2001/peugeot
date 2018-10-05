@@ -45,6 +45,9 @@ export const EcommerceProductEdit = (props) => (
                 <DisabledInput source="id" />
                 <TextInput source="title" />
                 <TextInput source="alias" />
+                <TextInput source="sku" />
+                <TextInput source="branding" />
+                <TextInput source="origin" />
                 <ReferenceInput label="Category" source="category_id" reference="catalog_categories" allowEmpty={true}>
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
@@ -111,6 +114,9 @@ export const EcommerceProductCreate = (props) => (
             <FormTab label="summary">
                 <TextInput source="title" />
                 <TextInput source="alias" />
+                <TextInput source="sku" />
+                <TextInput source="branding" />
+                <TextInput source="origin" />
                 <ReferenceInput label="Category" source="category_id" reference="catalog_categories" allowEmpty={true}>
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
