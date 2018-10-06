@@ -34,7 +34,7 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
                                 {chunk.map((item, index) => {
                                     return (
                                         <div className={"col-md-3 col-6 text-center cate" + (index + 1)} key={index}>
-                                            <img src="/img/product-1.png" alt="{item.title}" className="img-fluid" />
+                                            <img src={item.image} alt="{item.title}" className="img-fluid" />
                                             <div className="info-product">
                                                 <p className="line-img-product"></p>
                                                 <Link className="titleSP-product" to={"/product/" + item.type + "/" + this.props.categoryId + "/" + this.props.alias + "/" + item.id + "/" + item.alias}>{item.sku}<br />{item.title}</Link>

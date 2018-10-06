@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import PagePeugeotHome from './pages/Peugeot/Home/Home';
 import PagePeugeotCmsPost from './pages/Peugeot/Cms/Post';
 import PagePeugeotCategoryProduct from './pages/Peugeot/Category/Product';
@@ -8,6 +8,7 @@ import PagePeugeotEcommerceProduct from './pages/Peugeot/Ecommerce/Product';
 import PagePeugeotCategoryNews from './pages/Peugeot/Category/News';
 import { Provider } from 'react-redux';
 import { store } from 'reducers/store';
+import ScrollToTopRoute from './ScrollToTopRoute';
 
 class App extends Component {
   render() {
@@ -15,15 +16,14 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Switch>
             <Route path="/" exact strict component={PagePeugeotHome} />
-            <Route path="/about" exact strict component={props => <PagePeugeotCmsPost {...props} itemId={9} />} />
-            <Route path="/posts/:type/:id/:alias" exact strict component={function (args) {
+              <ScrollToTopRoute path="/about" exact strict component={props => <PagePeugeotCmsPost {...props} itemId={9} />} />
+              <ScrollToTopRoute path="/posts/:type/:id/:alias" exact strict component={function (args) {
               return (
                 <PagePeugeotCmsPost itemId={args.match.params.id} type={args.match.params.type} key={args.match.params.type + '-' + args.match.params.id}/>
               );
             }} />
-            <Route path="/category/:type/:id/:alias" exact strict component={function (args) {
+              <ScrollToTopRoute path="/category/:type/:id/:alias" exact strict component={function (args) {
               if (args.match.params.type == 'news') {
                 return (
                   <PagePeugeotCategoryNews categoryId={parseInt(args.match.params.id)} type={args.match.params.type} alias={args.match.params.alias} key={args.match.params.type + '-' + args.match.params.id} page={1} />
@@ -34,7 +34,7 @@ class App extends Component {
                 );
               }
             }} />
-              <Route path="/category/:type/:id/:alias/:page" exact strict component={function (args) {
+              <ScrollToTopRoute path="/category/:type/:id/:alias/:page" exact strict component={function (args) {
                 if (args.match.params.type == 'news') {
                   return (
                     <PagePeugeotCategoryNews categoryId={parseInt(args.match.params.id)} type={args.match.params.type} alias={args.match.params.alias} key={args.match.params.type + '-' + args.match.params.id} page={parseInt(args.match.params.page)} />
@@ -45,7 +45,7 @@ class App extends Component {
                   );
                 }
               }} />
-              <Route path="/product/:type/:categoryId/:categoryAlias/:id/:alias" exact strict component={function (args) {
+              <ScrollToTopRoute path="/product/:type/:categoryId/:categoryAlias/:id/:alias" exact strict component={function (args) {
                 return (
                   <PagePeugeotEcommerceProduct 
                     productId={parseInt(args.match.params.id)} 
@@ -56,7 +56,17 @@ class App extends Component {
                     categoryAlias={args.match.params.categoryAlias} />
                 );
               }} />
-            </Switch>
+
+            <ScrollToTopRoute path="/product/:type/:id/:alias" exact strict component={function (args) {
+              return (
+                <PagePeugeotEcommerceProduct
+                  productId={parseInt(args.match.params.id)}
+                  type={args.match.params.type}
+                  alias={args.match.params.alias}
+                  key={args.match.params.type + '-' + args.match.params.id}
+                   />
+              );
+            }} />
           </div>
         </Router>
       </Provider>

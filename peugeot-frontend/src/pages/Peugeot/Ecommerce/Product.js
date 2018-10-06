@@ -11,8 +11,8 @@ class PagePeugeotEcommerceProduct extends Component {
             <div className="category">
                 <ModulePeugeotHeaderInner />
                 <main role="main">
-                    <ModulePeugeotEcommerceProduct productId={this.props.categoryId} type={this.props.type} />
-                    <ModulePeugeotEcommerceProductRelated productId={this.props.categoryId} type={this.props.type} />
+                    <ModulePeugeotEcommerceProduct productId={this.props.productId} type={this.props.type} />
+                    <ModulePeugeotEcommerceProductRelated productId={this.props.productId} type={this.props.type} categoryId={this.props.categoryId} />
                     <ModulePeugeotFooter />
                 </main>
             </div>

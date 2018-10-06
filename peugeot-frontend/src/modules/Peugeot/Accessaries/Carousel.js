@@ -33,7 +33,7 @@ class ModulePeugeotAccessariesCarousel extends Component {
                     <div className="row">
                         <div className="col-md-3 col-sm-4  p-a0 no-of-item">
                             <div className="no-of-item-dtl">
-                                <img src="/img/Peugeot-logo.png" alt="Peugeot Logo" />
+                                <img src="/img/Peugeot-logo.png" alt="Peugeot Logo" className="img-fluid" />
                                 <h3>Phụ tùng theo xe</h3>
                             </div>
                         </div>
