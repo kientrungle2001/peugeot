@@ -1,1 +1,1 @@
-export const peugeot_api_url = 'http://api.peugeot.vn/api';
+export const peugeot_api_url = 'http://api.phutungpeugeot.com/api';
