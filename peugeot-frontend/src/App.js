@@ -9,6 +9,7 @@ import PagePeugeotCategoryNews from './pages/Peugeot/Category/News';
 import { Provider } from 'react-redux';
 import { store } from 'reducers/store';
 import ScrollToTopRoute from './ScrollToTopRoute';
+import PagePeugeotEcommerceCart from './pages/Peugeot/Ecommerce/Cart';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
         <Router>
           <div>
             <Route path="/" exact strict component={PagePeugeotHome} />
+            <Route path="/cart" exact strict component={PagePeugeotEcommerceCart} />
               <ScrollToTopRoute path="/about" exact strict component={props => <PagePeugeotCmsPost {...props} itemId={9} />} />
               <ScrollToTopRoute path="/posts/:type/:id/:alias" exact strict component={function (args) {
               return (

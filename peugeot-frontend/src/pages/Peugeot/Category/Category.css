@@ -60,9 +60,6 @@ nav .pagination{
     background-color: #e9e9e9;
     margin-bottom: 5px;
 }
-.btn.button-cate {
-    margin-right: 5px;
-}
 .btn.button-cate:hover, .btn.button-cate.active {
     background: #D81517;
     color: #fff;

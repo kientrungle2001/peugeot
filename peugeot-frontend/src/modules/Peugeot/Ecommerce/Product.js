@@ -4,7 +4,7 @@ import './Product.css';
 import Axios from 'axios';
 import { peugeot_api_url } from 'peugeot_constants';
 import formatCurrency from 'format-currency';
-
+import peugeot_cart from 'cart';
 class ModulePeugeotEcommerceProduct extends Component {
     componentDidMount() {
         var that = this;
@@ -23,6 +23,16 @@ class ModulePeugeotEcommerceProduct extends Component {
             };
             that.setState(that.state);
         });
+    }
+    addToCart(item) {
+        peugeot_cart.add({
+            image: item.image,
+            title: item.title,
+            sku: item.sku,
+            price: item.price,
+            quantity: 1
+        });
+        window.location.href="/cart";
     }
     render() {
         return (
@@ -51,7 +61,7 @@ class ModulePeugeotEcommerceProduct extends Component {
                                         <h4 className="ma-dt-product">{this.state && this.state.item.sku}</h4>
                                     </div>
                                     <div className="col-6 price-dt-prduct text-right">Giá: {this.state && (this.state.item.price ? formatCurrency(this.state.item.price) + (this.state.item.unit ? 'đ / ' + this.state.item.unit : '') : 'Liên hệ')}</div>
-                                    <div className="col-6 add-to-cart text-left"><button className="btn site-button">Đặt mua</button></div>
+                                    <div className="col-6 add-to-cart text-left"><button className="btn site-button" onClick={this.state && this.state.item && (() => this.addToCart(this.state.item))}>Đặt mua</button></div>
                                 </div>
                                 <div className="des-add-to-cart">
                                     <ul>

@@ -158,4 +158,8 @@ ul.top-bar.breadcrumb {
         border-right: none;
     }
 }
+
+.max-width-140px {
+    max-width: 140px;
+}
 /*End Huong dan thanh toan*/

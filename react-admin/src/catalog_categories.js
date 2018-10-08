@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Filter, List, Edit, Create,
-    Datagrid, TextField, ReferenceField, EditButton, DisabledInput, LongTextInput,
+    Datagrid, TextField, ReferenceField, SelectField, EditButton, DisabledInput, LongTextInput,
     SimpleForm, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
@@ -33,6 +33,10 @@ export const CatalogCategoryList = (props) => (
             <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
                 <TextField source="title" />
             </ReferenceField>
+            <SelectField source="status" choices={[
+                { id: 0, name: 'Tắt' },
+                { id: 1, name: 'Bật' },
+            ]} />
             <EditButton />
         </Datagrid>
     </List>
