@@ -10,19 +10,22 @@ class ModulePeugeotEcommerceMinicart extends Component {
         var that = this;
         that.state = that.state || {};
         if(!that.is_listened) {
-            peugeot_cart.listen(function () {
+            console.log('MiniCart listen');
+            that.callback = function () {
                 that.state = {
                     cart_items: peugeot_cart.getItems()
                 };
-                if(that._ismounted)
+                if (that._ismounted)
                     that.setState(that.state);
-            });
+            };
+            peugeot_cart.listen(that.callback);
             that.is_listened = true;
             peugeot_cart.notify();
         }
     }
     componentWillUnmount() {
         this._ismounted = false;
+        peugeot_cart.removeHandler(this.callback);
     }
     removeItem(index) {
         peugeot_cart.remove('cart_items', index);

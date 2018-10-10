@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import { store } from 'reducers/store';
 import ScrollToTopRoute from './ScrollToTopRoute';
 import PagePeugeotEcommerceCart from './pages/Peugeot/Ecommerce/Cart';
+import PagePeugeotEcommerceCheckout from './pages/Peugeot/Ecommerce/Checkout';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <div>
             <Route path="/" exact strict component={PagePeugeotHome} />
             <Route path="/cart" exact strict component={PagePeugeotEcommerceCart} />
+            <Route path="/checkout" exact strict component={PagePeugeotEcommerceCheckout} />
               <ScrollToTopRoute path="/about" exact strict component={props => <PagePeugeotCmsPost {...props} itemId={9} />} />
               <ScrollToTopRoute path="/posts/:type/:id/:alias" exact strict component={function (args) {
               return (

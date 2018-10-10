@@ -22,7 +22,7 @@ const messages = {
 };
 // const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 // const dataProvider = jsonServerProvider('http://localhost:8000/api');
-const dataProvider = jsonServerProvider('http://api.peugeot.vn/api');
+const dataProvider = jsonServerProvider('http://api.phutungpeugeot.com/api');
 const uploadCapableDataProvider = addUploadCapabilities(dataProvider);
 
 const App = () => (
