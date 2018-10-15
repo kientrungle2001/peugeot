@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
-import { peugeot_api_url } from 'peugeot_constants';
-import formatCurrency from 'format-currency';
 import ModulePeugeotEcommerceMinicart from 'modules/Peugeot/Ecommerce/Minicart';
 
 class ModulePeugeotFooterFloatbar extends Component {

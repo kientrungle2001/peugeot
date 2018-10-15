@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
-import { peugeot_api_url } from 'peugeot_constants';
-import formatCurrency from 'format-currency';
 import 'pages/Peugeot/Category/Category.css';
 import peugeot_cart from 'cart';
 import {Link} from 'react-router-dom';
@@ -62,7 +59,7 @@ class ModulePeugeotEcommerceCart extends Component {
                                 return (
                                     <div className="product" key={key}>
                                         <div className="product-image">
-                                            <img src={item.image} className="img-fluid" />
+                                            <img src={item.image} className="img-fluid" alt={item.title} />
                                         </div>
                                         <div className="product-details text-center">
                                             <h4>{item.title}</h4>
@@ -88,7 +85,7 @@ class ModulePeugeotEcommerceCart extends Component {
                             </div>
                             <Link to="/category/product/1/san-pham"><button type="button" className="btn btn-success float-right">Thêm sảm phẩm</button></Link>
                             <Link to="/checkout">
-                                <button type="button" className="btn site-button float-right"><img src="/img/icon_search_peugeot.png" style={{ "width": "24px", "marginRight": "0.2rem" }} /> Đặt hàng</button>
+                                <button type="button" className="btn site-button float-right"><img src="/img/icon_search_peugeot.png" style={{ "width": "24px", "marginRight": "0.2rem" }} alt="Order" /> Đặt hàng</button>
                             </Link>
                         </div>
                     </div>

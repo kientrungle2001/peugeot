@@ -15,7 +15,7 @@ class ModulePeugeotCmsPost extends Component {
         return (
             <div className="container">
                 <h1>{this.state && this.state.title}</h1>
-                <div className="content" dangerouslySetInnerHTML={{ __html: this.state && this.state.content || '' }}></div>
+                <div className="content" dangerouslySetInnerHTML={{ __html: this.state && (this.state.content || '') }}></div>
             </div>
         );
     }

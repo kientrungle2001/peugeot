@@ -35,7 +35,7 @@ var peugeot_storage = {
     },
     clear: function(key) {
         var collection = this.collection(key);
-        collection.clear();
+        collection.length = 0;
         this.set(key, collection);
     }
 };

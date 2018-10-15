@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { peugeot_api_url } from 'peugeot_constants';
-import formatCurrency from 'format-currency';
 import 'pages/Peugeot/Category/Category.css';
 import './Checkout.css';
 import peugeot_cart from 'cart';
 import { Link } from 'react-router-dom';
 
 class ModulePeugeotEcommerceCheckout extends Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
     componentDidMount() {
         this._ismounted = true;
         var that = this;
@@ -32,6 +35,31 @@ class ModulePeugeotEcommerceCheckout extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.refs.fullName.value);
+        console.log(this.refs.phone.value);
+        console.log(this.refs.address.value);
+        let formData = {
+            fullName: this.refs.fullName.value,
+            phone: this.refs.phone.value,
+            address: this.refs.address.value,
+            items: peugeot_cart.getItems()
+        };
+        var that = this;
+        if(formData.items.length) {
+            Axios.post(peugeot_api_url + '/ecommerce_checkout', formData).then(function (resp) {
+                alert('Cám ơn bạn đã đặt hàng. Chúng tôi sẽ sớm liên hệ lại với bạn');
+                peugeot_cart.clear();
+                that.refs.fullName.value = '';
+                that.refs.phone.value = '';
+                that.refs.address.value = '';
+            }).catch(function (err) {
+                console.log(err);
+            });
+        } else {
+            alert('Không có sản phẩm nào trong giỏ hàng');
+        }
+        
         return false;
     }
 
@@ -45,15 +73,15 @@ class ModulePeugeotEcommerceCheckout extends Component {
                 <div className="container content-detail-cart">
                     <div className="row justify-content-md-center">
                         <div className="col-md-6">
-                            <form onSubmit={this.handleSubmit.bind(this)}>
+                            <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
-                                    <input name="fullName" type="text" className="form-control" placeholder="Họ tên (bắt buộc)" />
+                                    <input ref="fullName" name="fullName" type="text" className="form-control" placeholder="Họ tên (bắt buộc)" />
                                 </div>
                                 <div className="form-group">
-                                    <input name="address" type="text" className="form-control" placeholder="Địa chỉ nhận hàng (bắt buộc)" />
+                                    <input ref="address" name="address" type="text" className="form-control" placeholder="Địa chỉ nhận hàng (bắt buộc)" />
                                 </div>
                                 <div className="form-group">
-                                    <input name="phone" type="text" className="form-control" placeholder="Điện thoại (bắt buộc)" />
+                                    <input ref="phone" name="phone" type="text" className="form-control" placeholder="Điện thoại (bắt buộc)" />
                                 </div>
                                 <div className="form-group text-center"><img src="/img/capcha-icon.jpg" alt="Capcha Icon" className="img-responsive margin-0-auto" /></div>
                                 <div className="row">

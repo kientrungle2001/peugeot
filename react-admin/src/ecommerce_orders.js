@@ -1,7 +1,7 @@
 // TODO: Ecommerce Orders
 import React from 'react';
 import {
-    Filter, List, Edit, Create,
+    Filter, List, Edit, Create, Show, SimpleShowLayout,
     Datagrid, TextField, ReferenceField, EditButton, DisabledInput,
     SimpleForm, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
@@ -18,15 +18,8 @@ export const EcommerceOrderList = (props) => (
     <List {...props} filters={<EcommerceOrderFilter />}>
         <Datagrid>
             <TextField source="id" />
-            <TextField source="scope" label="Phạm vi" />
             <ReferenceField label="Tên khách hàng" source="customer_id" reference="ecommerce_customers">
                 <TextField source="fullname" />
-            </ReferenceField>
-            <ReferenceField label="Email" source="customer_id" reference="ecommerce_customers">
-                <TextField source="email" />
-            </ReferenceField>
-            <ReferenceField label="Số điện thoại" source="customer_id" reference="ecommerce_customers">
-                <TextField source="phone" />
             </ReferenceField>
             <TextField source="created_at" label="Ngày tạo" />
             <TextField source="updated_at" label="Ngày sửa" />
@@ -52,6 +45,11 @@ export const EcommerceOrderEdit = (props) => (
             <ReferenceInput label="Khách hàng" source="customer_id" reference="ecommerce_customers" allowEmpty={true}>
                 <SelectInput optionText="fullname" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
+            <TextInput source="discount" />
+            <TextInput source="discount_policy_id" />
+            <TextInput source="total_before_discount" />
+            <TextInput source="tax" />
+            <TextInput source="total_before_tax" />
             <TextInput source="total_amount" />
             <BooleanInput source="status" />
             <BooleanInput source="deleted" />
@@ -65,9 +63,33 @@ export const EcommerceOrderCreate = (props) => (
             <ReferenceInput label="Khách hàng" source="customer_id" reference="ecommerce_customers" allowEmpty={true}>
                 <SelectInput optionText="fullname" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
+            <TextInput source="discount" />
+            <TextInput source="discount_policy_id" />
+            <TextInput source="total_before_discount" />
+            <TextInput source="tax" />
+            <TextInput source="total_before_tax" />
             <TextInput source="total_amount" />
             <BooleanInput source="status" />
             <BooleanInput source="deleted" />
         </SimpleForm>
     </Create>
+);
+
+export const EcommerceOrderShow = (props) => (
+    <Show title={<EcommerceOrderTitle />} {...props}>
+        <SimpleShowLayout>
+            <TextField source="id" />
+            <ReferenceField label="Tên khách hàng" source="customer_id" reference="ecommerce_customers">
+                <TextField source="fullname" />
+            </ReferenceField>
+            <TextField source="created_at" label="Ngày tạo" />
+            <TextField source="updated_at" label="Ngày sửa" />
+            <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
+                <TextField source="title" />
+            </ReferenceField>
+            <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
+                <TextField source="title" />
+            </ReferenceField>
+        </SimpleShowLayout>
+    </Show>
 );

@@ -1,9 +1,28 @@
 import React from 'react';
-import { Filter, List, Edit, Create, 
-    Datagrid,  TextField, ReferenceField, EditButton, DisabledInput, LongTextInput, 
-    TabbedForm, FormTab, TextInput, ReferenceInput, SelectInput,
-    BooleanInput } from 'react-admin';
+import { 
+    Filter, List, Edit, Create, Show, 
+    Datagrid, ShowButton, EditButton,
+    TextField, ReferenceField, BooleanField, RichTextField,
+    DisabledInput, LongTextInput, TextInput, ReferenceInput, SelectInput, BooleanInput, 
+    TabbedForm, FormTab,
+    TabbedShowLayout, Tab } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
+
+var toolbar = [
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block'],
+
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+    [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    ['clean', 'image']                                         // remove formatting button
+];
 
 const CmsPostFilter = (props) => (
     <Filter {...props}>
@@ -27,6 +46,7 @@ export const CmsPostList = (props) => (
             <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
                 <TextField source="title" />
             </ReferenceField>
+            <ShowButton />
             <EditButton />
         </Datagrid>
     </List>
@@ -54,7 +74,7 @@ export const CmsPostEdit = (props) => (
             </FormTab>
             <FormTab label="content">
                 <LongTextInput source="brief" />
-                <RichTextInput source="content" />
+                <RichTextInput source="content" toolbar={toolbar} />
             </FormTab>
             <FormTab label="advance">
                 <TextInput source="type" />
@@ -113,7 +133,7 @@ export const CmsPostCreate = (props) => (
             </FormTab>
             <FormTab label="content">
                 <LongTextInput source="brief" />
-                <RichTextInput source="content" />
+                <RichTextInput source="content" toolbar={toolbar} />
             </FormTab>
             <FormTab label="advance">
                 <TextInput source="type" />
@@ -133,4 +153,45 @@ export const CmsPostCreate = (props) => (
             </FormTab>
         </TabbedForm>
     </Create>
+);
+
+export const CmsPostShow = (props) => (
+    <Show title={<CmsPostTitle />} {...props}>
+        <TabbedShowLayout>
+            <Tab label="Summary">
+                <TextField source="id" />
+                <TextField source="title" label="Tiêu đề" />
+                <TextField source="alias" />
+                <TextField source="image" />
+                <TextField source="link" />
+                <ReferenceField label="Danh mục" source="category_id" reference="catalog_categories">
+                    <TextField source="title" />
+                </ReferenceField>
+                <ReferenceField label="Bài viết cha" source="parent_id" reference="cms_posts">
+                    <TextField source="title" />
+                </ReferenceField>
+                <BooleanField source="status" />
+                <TextField source="source" />
+                <TextField source="tags" />
+                <TextField source="type" />
+                <TextField source="url" />
+            </Tab>
+            <Tab label="Content">
+                <TextField source="brief" />
+                <RichTextField source="content" />
+            </Tab>
+            <Tab label="Advanced">
+                <TextField source="label" />
+                <TextField source="created_at" label="Ngày tạo" />
+                <TextField source="updated_at" label="Ngày sửa" />
+                <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
+                    <TextField source="title" />
+                </ReferenceField>
+                <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
+                    <TextField source="title" />
+                </ReferenceField>
+                <BooleanField source="deleted" />
+            </Tab>
+        </TabbedShowLayout>
+    </Show>
 );

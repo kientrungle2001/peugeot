@@ -2,9 +2,10 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
-import { CmsPostList, CmsPostEdit, CmsPostCreate } from './cms_posts';
+import { EcommerceOrderList, EcommerceOrderEdit, EcommerceOrderCreate, EcommerceOrderShow } from './ecommerce_orders';
+import { CmsPostList, CmsPostEdit, CmsPostCreate, CmsPostShow } from './cms_posts';
 import { CmsPostMetadataList, CmsPostMetadataEdit, CmsPostMetadataCreate } from './cms_post_metadatas';
-import { CatalogCategoryList, CatalogCategoryEdit, CatalogCategoryCreate } from './catalog_categories';
+import { CatalogCategoryList, CatalogCategoryEdit, CatalogCategoryCreate, CatalogCategoryShow } from './catalog_categories';
 import { CatalogTypeList, CatalogTypeEdit, CatalogTypeCreate } from './catalog_types';
 import { EcommerceCustomerList, EcommerceCustomerEdit, EcommerceCustomerCreate } from './ecommerce_customers';
 import { EcommerceProductList, EcommerceProductEdit, EcommerceProductCreate } from './ecommerce_products';
@@ -22,14 +23,15 @@ const messages = {
 };
 // const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 // const dataProvider = jsonServerProvider('http://localhost:8000/api');
-const dataProvider = jsonServerProvider('http://api.phutungpeugeot.com/api');
+const dataProvider = jsonServerProvider('http://api.peugeot.vn/api');
 const uploadCapableDataProvider = addUploadCapabilities(dataProvider);
 
 const App = () => (
   <Admin locale="vi" messages={messages} dataProvider={uploadCapableDataProvider} dashboard={Dashboard} authProvider={authProvider} title="Quản trị Peugeot">
-    <Resource name="catalog_categories" list={CatalogCategoryList} edit={CatalogCategoryEdit} create={CatalogCategoryCreate} label="Danh mục" title="Danh mục" options={{ label: 'Danh mục' }} />
+    <Resource name="ecommerce_orders" list={EcommerceOrderList} edit={EcommerceOrderEdit} create={EcommerceOrderCreate} show={EcommerceOrderShow} label="Đơn hàng" title="Đơn hàng" options={{ label: 'Đơn hàng' }} />
+    <Resource name="catalog_categories" list={CatalogCategoryList} edit={CatalogCategoryEdit} create={CatalogCategoryCreate} show={CatalogCategoryShow} label="Danh mục" title="Danh mục" options={{ label: 'Danh mục' }} />
     <Resource name="catalog_types" list={CatalogTypeList} edit={CatalogTypeEdit} create={CatalogTypeCreate} label="Các loại" title="Các loại" options={{ label: 'Các loại' }} />
-    <Resource name="cms_posts" list={CmsPostList} edit={CmsPostEdit} create={CmsPostCreate} label="Bài viết" title="Bài viết" options={{ label: 'Bài viết' }} />
+    <Resource name="cms_posts" list={CmsPostList} edit={CmsPostEdit} create={CmsPostCreate} show={CmsPostShow} label="Bài viết" title="Bài viết" options={{ label: 'Bài viết' }} />
     <Resource name="cms_post_metadatas" list={CmsPostMetadataList} edit={CmsPostMetadataEdit} create={CmsPostMetadataCreate} label="Thuộc tính Bài Viết" title="Thuộc tính Bài Viết" options={{ label: 'Thuộc tính bài viết' }} />
     <Resource name="ecommerce_customers" list={EcommerceCustomerList} edit={EcommerceCustomerEdit} create={EcommerceCustomerCreate} label="Khách hàng" title="Khách hàng" options={{ label: 'Khách hàng' }} />
     <Resource name="ecommerce_products" list={EcommerceProductList} edit={EcommerceProductEdit} create={EcommerceProductCreate} label="Sản phẩm" title="Sản phẩm" options={{ label: 'Sản phẩm' }} />

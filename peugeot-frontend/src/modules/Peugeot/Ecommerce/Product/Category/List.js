@@ -13,8 +13,8 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
             that.state = {
                 items: resp.data,
                 chunks: chunk(resp.data, 4),
-                total_items: parseInt(resp.headers['x-total-count']),
-                total_pages: Math.ceil(parseInt(resp.headers['x-total-count']) / 16),
+                total_items: parseInt(resp.headers['x-total-count'], 10),
+                total_pages: Math.ceil(parseInt(resp.headers['x-total-count'], 10) / 16),
                 pages: []
             }
 
@@ -34,7 +34,7 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
                                 {chunk.map((item, index) => {
                                     return (
                                         <div className={"col-md-3 col-6 text-center cate" + (index + 1)} key={index}>
-                                            <img src={item.image} alt="{item.title}" className="img-fluid" />
+                                            <img src={item.image} alt={item.title} className="img-fluid" />
                                             <div className="info-product">
                                                 <p className="line-img-product"></p>
                                                 <Link className="titleSP-product" to={"/product/" + item.type + "/" + this.props.categoryId + "/" + this.props.alias + "/" + item.id + "/" + item.alias}>{item.sku}<br />{item.title}</Link>
@@ -52,7 +52,7 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
                 <nav aria-label="Page navigation phutungpeugeot.com">
                     <ul className="pagination justify-content-center">
                         <li className="page-item">
-                            <a className="page-link" href="#" aria-label="Previous">
+                            <a className="page-link" href="/" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span className="sr-only">Previous</span>
                             </a>
@@ -60,7 +60,7 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
                         {this.state && this.state.pages.map(
                             (page, index) => {
                                 return (
-                                    <li className={"page-item " + (page == this.props.page ? 'active': '')} key={index}>
+                                    <li className={"page-item " + (page === this.props.page ? 'active': '')} key={index}>
                                         <Link className="page-link" to={'/category/product/' + this.props.categoryId + '/' + this.props.alias + '/' + page}>{page}</Link>
                                     </li>
                                 );
@@ -69,7 +69,7 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
                         
                         
                         <li className="page-item">
-                            <a className="page-link" href="#" aria-label="Next">
+                            <a className="page-link" href="/" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span className="sr-only">Next</span>
                             </a>

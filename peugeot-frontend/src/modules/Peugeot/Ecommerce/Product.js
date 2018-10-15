@@ -9,7 +9,7 @@ class ModulePeugeotEcommerceProduct extends Component {
     componentDidMount() {
         var that = this;
         var productIds = window.localStorage.getItem('productIds') || '';
-        if(productIds == '') {
+        if(productIds === '') {
             productIds = ',' + this.props.productId + ',';
         } else {
             if (productIds.indexOf(',' + this.props.productId + ',') === -1) {
@@ -26,6 +26,7 @@ class ModulePeugeotEcommerceProduct extends Component {
     }
     addToCart(item) {
         peugeot_cart.add({
+            product_id: item.id,
             image: item.image,
             title: item.title,
             sku: item.sku,
@@ -78,7 +79,7 @@ class ModulePeugeotEcommerceProduct extends Component {
                         </div>
                         <div className="col-md-7 main-ds-content-product">
                             <h2 className="tit-category tit-product">{this.state && this.state.item.title} - {this.state && this.state.item.sku}</h2>
-                            <p className="m-tb20"><strong>VHP Auto</strong> is simply dummy text of the print ing and in type setting industry. Lorem Ipsum has bee the industry's standard...</p>
+                            <div className="m-tb20" dangerouslySetInnerHTML={{ __html: this.state && (this.state.item.content || '') }}></div>
                             <div className="row">
                                 <div className="col-md-7 col-12">
                                     <table className="table table-hover">

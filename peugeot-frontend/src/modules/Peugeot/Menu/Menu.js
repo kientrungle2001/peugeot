@@ -20,9 +20,7 @@ axios.get(peugeot_api_url + '/catalog_categories?_start=0&_end=100&type=menu-ite
 });
 
 class ModulePeugeotMenu extends Component {
-    constructor(props) {
-        super(props);
-    }
+
     componentDidMount() {
         var that = this;
         if (null !== menu_items) {
@@ -46,7 +44,7 @@ class ModulePeugeotMenu extends Component {
         return (
             <nav className="navbar navbar-expand-md navbar-dark bg-transparent sticky-header">
                 <div className="container">
-                    <a className="navbar-brand" href="#"><img src="/img/logo_small.png" /></a>
+                    <a className="navbar-brand" href="/"><img src="/img/logo_small.png" alt="Logo" /></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -58,7 +56,7 @@ class ModulePeugeotMenu extends Component {
                                 this.state.items.map((item, i)=>{
                                     return (
                                         <li key={i} className={this.getActiveClass(item)}>
-                                            {item.link == '/home' ? <a className="nav-link" href={item.link} title={item.title}>{item.title} </a>:<Link className="nav-link" to={item.link} title={item.title}>{item.title} </Link>}
+                                            {item.link === '/home' ? <a className="nav-link" href={item.link} title={item.title}>{item.title} </a>:<Link className="nav-link" to={item.link} title={item.title}>{item.title} </Link>}
                                         </li>
                                     );
                                 }) : ''
