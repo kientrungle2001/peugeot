@@ -1,8 +1,10 @@
 import React from 'react';
 import {
-    Filter, List, Edit, Create,
-    Datagrid, TextField, ReferenceField, ImageField, EditButton, DisabledInput, LongTextInput,
-    TabbedForm, FormTab, TextInput, ReferenceInput, SelectInput, BooleanInput
+    Filter, List, Edit, Create, Show,
+    TabbedShowLayout, Tab,
+    Datagrid, EditButton, ShowButton,
+    TextField, ReferenceField, ImageField, BooleanField, RichTextField, ReferenceManyField,
+    TabbedForm, FormTab, DisabledInput, LongTextInput, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 
@@ -33,6 +35,7 @@ export const EcommerceProductList = (props) => (
                 <TextField source="title" />
             </ReferenceField>
             <EditButton />
+            <ShowButton />
         </Datagrid>
     </List>
 );
@@ -158,4 +161,67 @@ export const EcommerceProductCreate = (props) => (
             </FormTab>
         </TabbedForm>
     </Create>
+);
+
+export const EcommerceProductShow = (props) => (
+    <Show title={<EcommerceProductTitle />} {...props}>
+        <TabbedShowLayout>
+            <Tab label="summary">
+                <TextField source="title" />
+                <TextField source="alias" />
+                <TextField source="sku" />
+                <TextField source="branding" />
+                <TextField source="origin" />
+                <ReferenceField label="Category" source="category_id" reference="catalog_categories" allowEmpty={true}>
+                    <TextField source="title" />
+                </ReferenceField>
+                <ReferenceField label="Supplier" source="supplier_id" reference="ecommerce_suppliers" allowEmpty={true}>
+                    <TextField source="title" />
+                </ReferenceField>
+                <TextField source="image" />
+                <TextField source="tags" />
+                <TextField source="source" />
+                <BooleanField source="status" />
+                <TextField source="url" />
+            </Tab>
+            <Tab label="product">
+                <TextField source="price" />
+                <TextField source="oldPrice" />
+                <TextField source="unit" />
+                <TextField source="quantity" />
+                <TextField source="supplier_id" />
+                <TextField source="product_set_id" />
+            </Tab>
+            <Tab label="content">
+                <TextField source="brief" />
+                <RichTextField source="content" />
+            </Tab>
+            <Tab label="advance">
+                <TextField source="type" />
+                <TextField source="label" />
+                <TextField source="link" />
+                <ReferenceField label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                    <TextField source="title" />
+                </ReferenceField>
+                <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                    <TextField source="title" />
+                </ReferenceField>
+                <BooleanField source="deleted" />
+            </Tab>
+            <Tab label="Thuộc tính" path="ecommerce_product_metadatas">
+                <ReferenceManyField reference="ecommerce_product_metadatas" target="product_id" addLabel={false}>
+                    <Datagrid>
+                        <TextField source="type" label="Loại" />
+                        <TextField source="dataType" label="Kiểu dữ liệu" />
+                        <TextField source="int_value" label="Int value" />
+                        <TextField source="varchar_value" label="Varchar value" />
+                        <TextField source="double_value" label="Double value" />
+                        <TextField source="tinyint_value" label="Tinyint value" />
+                        <EditButton />
+                        <ShowButton />
+                    </Datagrid>
+                </ReferenceManyField>
+            </Tab>
+        </TabbedShowLayout>
+    </Show>
 );

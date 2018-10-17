@@ -1,9 +1,11 @@
 // TODO: Ecommerce Orders
 import React from 'react';
 import {
-    Filter, List, Edit, Create, Show, SimpleShowLayout,
-    Datagrid, TextField, ReferenceField, EditButton, DisabledInput,
-    SimpleForm, TextInput, ReferenceInput, SelectInput, BooleanInput
+    Filter, List, Edit, Create, Show, 
+    TabbedShowLayout, Tab,
+    Datagrid, EditButton, ShowButton, 
+    TextField, ReferenceField, ReferenceManyField, BooleanField,
+    SimpleForm, DisabledInput, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 
 const EcommerceOrderFilter = (props) => (
@@ -21,6 +23,7 @@ export const EcommerceOrderList = (props) => (
             <ReferenceField label="Tên khách hàng" source="customer_id" reference="ecommerce_customers">
                 <TextField source="fullname" />
             </ReferenceField>
+            <TextField source="total_amount" label="Tổng tiền" />
             <TextField source="created_at" label="Ngày tạo" />
             <TextField source="updated_at" label="Ngày sửa" />
             <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
@@ -29,7 +32,9 @@ export const EcommerceOrderList = (props) => (
             <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
                 <TextField source="title" />
             </ReferenceField>
-            <EditButton />
+            <BooleanField source="status" label="Trạng thái" />
+            <EditButton label="Sửa" />
+            <ShowButton label="Xóa" />
         </Datagrid>
     </List>
 );
@@ -41,18 +46,25 @@ const EcommerceOrderTitle = ({ record }) => {
 export const EcommerceOrderEdit = (props) => (
     <Edit title={<EcommerceOrderTitle />} {...props}>
         <SimpleForm>
-            <DisabledInput source="id" />
-            <ReferenceInput label="Khách hàng" source="customer_id" reference="ecommerce_customers" allowEmpty={true}>
+            <DisabledInput source="id" className="ra-field-33"/>
+            <ReferenceInput label="Khách hàng" source="customer_id" reference="ecommerce_customers" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="fullname" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <TextInput source="discount" />
-            <TextInput source="discount_policy_id" />
-            <TextInput source="total_before_discount" />
-            <TextInput source="tax" />
-            <TextInput source="total_before_tax" />
-            <TextInput source="total_amount" />
-            <BooleanInput source="status" />
-            <BooleanInput source="deleted" />
+            <TextInput source="discount" className="ra-field-33" label="Giảm giá" />
+            <TextInput source="discount_policy_id" className="ra-field-33" label="Chính sách giảm giá" />
+            <TextInput source="total_before_discount" className="ra-field-33" label="Tổng trước khi giảm giá" />
+            <TextInput source="tax" className="ra-field-33" label="Thuế" />
+            <TextInput source="total_before_tax" className="ra-field-33" label="Tổng trước thuế" />
+            <TextInput source="total_amount" className="ra-field-33" label="Tổng tiền" />
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
+            <BooleanInput source="status" className="ra-field-33" label="Trạng thái" />
+            <BooleanInput source="deleted" className="ra-field-33" label="Đã xóa" />
+            <div className="clear-both">------------------------------</div>
         </SimpleForm>
     </Edit>
 );
@@ -63,33 +75,66 @@ export const EcommerceOrderCreate = (props) => (
             <ReferenceInput label="Khách hàng" source="customer_id" reference="ecommerce_customers" allowEmpty={true}>
                 <SelectInput optionText="fullname" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <TextInput source="discount" />
-            <TextInput source="discount_policy_id" />
-            <TextInput source="total_before_discount" />
-            <TextInput source="tax" />
-            <TextInput source="total_before_tax" />
-            <TextInput source="total_amount" />
-            <BooleanInput source="status" />
-            <BooleanInput source="deleted" />
+            <TextInput source="discount" label="Giảm giá" />
+            <TextInput source="discount_policy_id" label="Chính sách giảm giá" />
+            <TextInput source="total_before_discount" label="Tổng trước giảm giá" />
+            <TextInput source="tax" label="Thuế" />
+            <TextInput source="total_before_tax" label="Tổng trước thuế" />
+            <TextInput source="total_amount" label="Tổng tiền" />
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            </ReferenceInput>
+            <BooleanInput source="status" label="Trạng thái" />
+            <BooleanInput source="deleted" label="Đã xóa" />
         </SimpleForm>
     </Create>
 );
 
 export const EcommerceOrderShow = (props) => (
     <Show title={<EcommerceOrderTitle />} {...props}>
-        <SimpleShowLayout>
-            <TextField source="id" />
-            <ReferenceField label="Tên khách hàng" source="customer_id" reference="ecommerce_customers">
-                <TextField source="fullname" />
-            </ReferenceField>
-            <TextField source="created_at" label="Ngày tạo" />
-            <TextField source="updated_at" label="Ngày sửa" />
-            <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
-                <TextField source="title" />
-            </ReferenceField>
-            <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
-                <TextField source="title" />
-            </ReferenceField>
-        </SimpleShowLayout>
+        <TabbedShowLayout>
+            <Tab label="Cơ bản">
+                <TextField source="id" className="ra-field-25" />
+                <ReferenceField label="Tên khách hàng" source="customer_id" reference="ecommerce_customers" className="ra-field-25">
+                    <TextField source="fullname" />
+                </ReferenceField>
+                <TextField source="discount" className="ra-field-25" label="Giảm giá" />
+                <TextField source="discount_policy_id" className="ra-field-25" label="Chính sách giảm giá" />
+                <TextField source="total_before_discount" className="ra-field-25" label="Tổng trước giảm giá" />
+                <TextField source="tax" className="ra-field-25" label="Thuế" />
+                <TextField source="total_before_tax" className="ra-field-25" label="Tổng trước thuế" />
+                <TextField source="total_amount" className="ra-field-25" label="Tổng tiền" />
+                <TextField source="created_at" label="Ngày tạo" className="ra-field-25" />
+                <TextField source="updated_at" label="Ngày sửa" className="ra-field-25" />
+                <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares" className="ra-field-25">
+                    <TextField source="title" />
+                </ReferenceField>
+                <ReferenceField label="Trang web" source="site_id" reference="portal_sites" className="ra-field-25">
+                    <TextField source="title" />
+                </ReferenceField>
+            </Tab>
+            <Tab label="Đặt hàng" path="ecommerce_order_products">
+                <ReferenceManyField reference="ecommerce_order_products" target="order_id" addLabel={false}>
+                    <Datagrid>
+                        <TextField source="id" />
+                        <ReferenceField label="Sản phẩm" source="product_id" reference="ecommerce_products">
+                            <TextField source="title" />
+                        </ReferenceField>
+                        <ReferenceField label="Mã Sản phẩm" source="product_id" reference="ecommerce_products">
+                            <TextField source="sku" />
+                        </ReferenceField>
+                        <TextField source="price" label="Giá" />
+                        <TextField source="quantity" label="Số lượng" />
+                        <TextField source="total_amount" label="Tổng tiền" />
+                        <TextField source="created_at" label="Ngày tạo" />
+                        <EditButton label="Sửa" />
+                        <ShowButton label="Xem" />
+                    </Datagrid>
+                </ReferenceManyField>
+            </Tab>
+        </TabbedShowLayout>
     </Show>
 );

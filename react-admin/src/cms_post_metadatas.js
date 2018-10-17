@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-    Filter, List, Edit, Create,
-    Datagrid, TextField, EditButton, DisabledInput, LongTextInput,
-    SimpleForm, TextInput, ReferenceInput, SelectInput
+    Filter, List, Edit, Create, Show,
+    Datagrid, TextField, EditButton, ShowButton,
+    SimpleShowLayout,
+    SimpleForm, TextInput, ReferenceInput, DisabledInput, LongTextInput, SelectInput
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 
@@ -27,6 +28,7 @@ export const CmsPostMetadataList = (props) => (
             <TextField source="double_value" label="Double value" />
             <TextField source="tinyint_value" label="Tinyint value" />
             <EditButton />
+            <ShowButton />
         </Datagrid>
     </List>
 );
@@ -68,4 +70,19 @@ export const CmsPostMetadataCreate = (props) => (
             <TextInput source="tinyint_value" />
         </SimpleForm>
     </Create>
+);
+
+export const CmsPostMetadataShow = (props) => (
+    <Show title={<CmsPostMetadataTitle />} {...props}>
+        <SimpleShowLayout>
+            <TextField source="id" />
+            <TextField source="post_id" label="Bài viết" />
+            <TextField source="type" label="Loại" />
+            <TextField source="dataType" label="Kiểu dữ liệu" />
+            <TextField source="int_value" label="Int value" />
+            <TextField source="varchar_value" label="Varchar value" />
+            <TextField source="double_value" label="Double value" />
+            <TextField source="tinyint_value" label="Tinyint value" />
+        </SimpleShowLayout>
+    </Show>
 );

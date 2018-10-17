@@ -2,10 +2,11 @@ import React from 'react';
 import { 
     Filter, List, Edit, Create, Show, 
     Datagrid, ShowButton, EditButton,
-    TextField, ReferenceField, BooleanField, RichTextField,
+    TextField, ReferenceField, BooleanField, RichTextField, ReferenceManyField,
     DisabledInput, LongTextInput, TextInput, ReferenceInput, SelectInput, BooleanInput, 
     TabbedForm, FormTab,
-    TabbedShowLayout, Tab } from 'react-admin';
+    TabbedShowLayout, Tab 
+} from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 
 var toolbar = [
@@ -46,8 +47,8 @@ export const CmsPostList = (props) => (
             <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
                 <TextField source="title" />
             </ReferenceField>
-            <ShowButton />
             <EditButton />
+            <ShowButton />
         </Datagrid>
     </List>
 );
@@ -149,7 +150,7 @@ export const CmsPostCreate = (props) => (
                 <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <BooleanInput source="deleted" />
+                <BooleanInput source="deleted" label="Đã xóa" />
             </FormTab>
         </TabbedForm>
     </Create>
@@ -158,30 +159,30 @@ export const CmsPostCreate = (props) => (
 export const CmsPostShow = (props) => (
     <Show title={<CmsPostTitle />} {...props}>
         <TabbedShowLayout>
-            <Tab label="Summary">
+            <Tab label="Tổng quan">
                 <TextField source="id" />
                 <TextField source="title" label="Tiêu đề" />
-                <TextField source="alias" />
-                <TextField source="image" />
-                <TextField source="link" />
+                <TextField source="alias" label="Bí danh" />
+                <TextField source="image" label="Đường dẫn ảnh" />
+                <TextField source="link" label="Liên kết" />
                 <ReferenceField label="Danh mục" source="category_id" reference="catalog_categories">
                     <TextField source="title" />
                 </ReferenceField>
                 <ReferenceField label="Bài viết cha" source="parent_id" reference="cms_posts">
                     <TextField source="title" />
                 </ReferenceField>
-                <BooleanField source="status" />
-                <TextField source="source" />
-                <TextField source="tags" />
-                <TextField source="type" />
-                <TextField source="url" />
+                <BooleanField source="status" label="Trạng thái" />
+                <TextField source="source" label="Nguồn" />
+                <TextField source="tags" label="Tags" />
+                <TextField source="type" label="Kiểu" />
+                <TextField source="url" label="Đường dẫn" />
             </Tab>
-            <Tab label="Content">
-                <TextField source="brief" />
-                <RichTextField source="content" />
+            <Tab label="Nội dung">
+                <TextField source="brief" label="Tóm tắt" />
+                <RichTextField source="content" label="Nội dung" />
             </Tab>
-            <Tab label="Advanced">
-                <TextField source="label" />
+            <Tab label="Nâng cao">
+                <TextField source="label" label="Nhãn" />
                 <TextField source="created_at" label="Ngày tạo" />
                 <TextField source="updated_at" label="Ngày sửa" />
                 <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
@@ -190,7 +191,21 @@ export const CmsPostShow = (props) => (
                 <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
                     <TextField source="title" />
                 </ReferenceField>
-                <BooleanField source="deleted" />
+                <BooleanField source="deleted" label="Đã xóa" />
+            </Tab>
+            <Tab label="Thuộc tính" path="cms_post_metadatas">
+                <ReferenceManyField reference="cms_post_metadatas" target="post_id" addLabel={false}>
+                    <Datagrid>
+                        <TextField source="type" label="Loại" />
+                        <TextField source="dataType" label="Kiểu dữ liệu" />
+                        <TextField source="int_value" label="Int value" />
+                        <TextField source="varchar_value" label="Varchar value" />
+                        <TextField source="double_value" label="Double value" />
+                        <TextField source="tinyint_value" label="Tinyint value" />
+                        <EditButton label="Sửa" />
+                        <ShowButton label="Xóa" />
+                    </Datagrid>
+                </ReferenceManyField>
             </Tab>
         </TabbedShowLayout>
     </Show>

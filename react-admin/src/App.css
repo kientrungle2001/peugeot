@@ -26,3 +26,35 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+div.ra-field-50 {
+  width: 50%;
+  float: left;
+  min-height: 40px;
+}
+
+div.ra-field-50 > div {
+  display: block;
+}
+
+div.ra-field-33 {
+  width: 30%;
+  margin-right: 3.33% !important;
+  float: left;
+  min-height: 40px;
+}
+
+div.ra-field-33 > div {
+  display: block;
+}
+
+div.ra-field-25 {
+  width: 22%;
+  margin-right: 3%;
+  float: left;
+  min-height: 40px;
+}
+
+div.ra-field-25 > div {
+  display: block;
+}

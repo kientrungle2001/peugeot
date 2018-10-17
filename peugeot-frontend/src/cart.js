@@ -28,6 +28,9 @@ var peugeot_cart = {
     listen: function(callback) {
         this.handlers.push(callback);
     },
+    onchange: function(callback) {
+        this.handlers.push(callback);
+    },
     removeHandler: function(callback) {
         var index = this.handlers.indexOf(callback);
         this.handlers.splice(index, 1);
