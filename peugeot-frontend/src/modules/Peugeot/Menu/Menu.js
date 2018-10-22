@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import {peugeot_api_url} from 'peugeot_constants';
+import {tt} from 'peugeot_language';
+import { translate } from 'react-i18next';
 var menu_items = null;
 var menu_item_handler = null;
 function notify_menu_items() {
@@ -56,7 +58,7 @@ class ModulePeugeotMenu extends Component {
                                 this.state.items.map((item, i)=>{
                                     return (
                                         <li key={i} className={this.getActiveClass(item)}>
-                                            {item.link === '/home' ? <a className="nav-link" href={item.link} title={item.title}>{item.title} </a>:<Link className="nav-link" to={item.link} title={item.title}>{item.title} </Link>}
+                                            {item.link === '/home' ? <a className="nav-link" href={item.link} title={tt(item.title)}>{tt(item.title)} </a>:<Link className="nav-link" to={item.link} title={tt(item.title)}>{tt(item.title)} </Link>}
                                         </li>
                                     );
                                 }) : ''
@@ -71,4 +73,4 @@ class ModulePeugeotMenu extends Component {
     }
 }
 
-export default ModulePeugeotMenu;
+export default translate('translations')(ModulePeugeotMenu);

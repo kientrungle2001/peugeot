@@ -1,27 +1,26 @@
 import React from 'react';
 import {
     Filter, List, Edit, Create, Show,
-    Datagrid, EditButton, ShowButton, 
-    TextField, ReferenceField, BooleanField, 
+    Datagrid, EditButton, ShowButton,
+    TextField, ReferenceField, BooleanField,
     SimpleShowLayout,
     SimpleForm, DisabledInput, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 
-const CatalogTypeFilter = (props) => (
+const AccountUserFilter = (props) => (
     <Filter {...props}>
         <TextInput label="Tìm kiếm" source="q" alwaysOn />
         <TextInput label="Ứng dụng" source="software_id" />
         <TextInput label="Website" source="site_id" />
-        <TextInput label="Danh mục" source="category_id" />
     </Filter>
 );
 
-export const CatalogTypeList = (props) => (
-    <List {...props} filters={<CatalogTypeFilter />}>
+export const AccountUserList = (props) => (
+    <List {...props} filters={<AccountUserFilter />}>
         <Datagrid>
             <TextField source="id" />
-            <TextField source="scope" label="Phạm vi" />
-            <TextField source="name" label="Kiểu" />
+            <TextField source="username" label="Tên đăng nhập" />
+            <TextField source="name" label="Họ và tên" />
             <TextField source="created_at" label="Ngày tạo" />
             <TextField source="updated_at" label="Ngày sửa" />
             <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
@@ -36,23 +35,17 @@ export const CatalogTypeList = (props) => (
     </List>
 );
 
-const CatalogTypeTitle = ({ record }) => {
-    return <span>Type {record ? `"${record.title}"` : ''}</span>;
+const AccountUserTitle = ({ record }) => {
+    return <span>Người dùng {record ? `"${record.title}"` : ''}</span>;
 };
 
-export const CatalogTypeEdit = (props) => (
-    <Edit title={<CatalogTypeTitle />} {...props}>
+export const AccountUserEdit = (props) => (
+    <Edit title={<AccountUserTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" className="ra-field-33" />
-            <TextInput source="scope" label="Phạm vi" className="ra-field-33" />
-            <TextInput source="name" label="Tên kiểu" className="ra-field-33" />
-            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
-                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
-            </ReferenceInput>
-            <ReferenceInput label="Kiểu cha" source="parent_id" reference="catalog_types" allowEmpty={true} className="ra-field-33">
-                <SelectInput optionText="name" optionValue="id" allowEmpty={true} />
-            </ReferenceInput>
-            <TextInput source="parent_path" className="ra-field-33" />
+            <TextInput source="username" label="Tên đăng nhập" className="ra-field-33" />
+            <TextInput source="password" label="Mật khẩu" className="ra-field-33" />
+            <TextInput source="name" label="Họ và tên" className="ra-field-33" />
             <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
@@ -66,18 +59,12 @@ export const CatalogTypeEdit = (props) => (
     </Edit>
 );
 
-export const CatalogTypeCreate = (props) => (
+export const AccountUserCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="scope" label="Phạm vi" className="ra-field-33" />
-            <TextInput source="name" label="Tên kiểu" className="ra-field-33" />
-            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
-                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
-            </ReferenceInput>
-            <ReferenceInput label="Kiểu cha" source="parent_id" reference="catalog_types" allowEmpty={true} className="ra-field-33">
-                <SelectInput optionText="name" optionValue="id" allowEmpty={true} />
-            </ReferenceInput>
-            <TextInput source="parent_path" className="ra-field-33" />
+            <TextInput source="username" label="Tên đăng nhập" className="ra-field-33" />
+            <TextInput source="password" label="Mật khẩu" className="ra-field-33" />
+            <TextInput source="name" label="Họ và tên" className="ra-field-33" />
             <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
@@ -91,19 +78,12 @@ export const CatalogTypeCreate = (props) => (
     </Create>
 );
 
-export const CatalogTypeShow = (props) => (
-    <Show title={<CatalogTypeTitle />} {...props}>
+export const AccountUserShow = (props) => (
+    <Show title={<AccountUserTitle />} {...props}>
         <SimpleShowLayout>
             <TextField source="id" className="ra-field-33" />
-            <TextField source="scope" label="Phạm vi" className="ra-field-33" />
-            <TextField source="name" label="Tên kiểu" className="ra-field-33" />
-            <ReferenceField label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
-                <TextField source="title" />
-            </ReferenceField>
-            <ReferenceField label="Kiểu cha" source="parent_id" reference="catalog_types" allowEmpty={true} className="ra-field-33">
-                <TextField source="name" />
-            </ReferenceField>
-            <TextField source="parent_path" className="ra-field-33" />
+            <TextField source="username" label="Tên đăng nhập" className="ra-field-33" />
+            <TextField source="name" label="Họ và tên" className="ra-field-33" />
             <ReferenceField label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <TextField source="title" />
             </ReferenceField>

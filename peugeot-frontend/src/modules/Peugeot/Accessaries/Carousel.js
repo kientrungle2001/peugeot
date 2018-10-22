@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import {peugeot_api_url} from 'peugeot_constants';
 import {Link} from 'react-router-dom';
+import { translate } from 'react-i18next';
+import { tt } from 'peugeot_language';
 var $ = window.jQuery;
+
 class ModulePeugeotAccessariesCarousel extends Component {
     componentDidMount() {
         var that = this;
@@ -27,6 +30,7 @@ class ModulePeugeotAccessariesCarousel extends Component {
         });
     }
     render() {
+        const { t } = this.props;
         return (
             <div className="section-full bg-img-fix dlab-new-work overlay-white-dark">
                 <div className="container-fluid">
@@ -34,7 +38,7 @@ class ModulePeugeotAccessariesCarousel extends Component {
                         <div className="col-md-3 col-sm-4  p-a0 no-of-item">
                             <div className="no-of-item-dtl">
                                 <img src="/img/Peugeot-logo.png" alt="Peugeot Logo" className="img-fluid" />
-                                <h3>Phụ tùng theo xe</h3>
+                                <h3>{t('phutung_theoxe')}</h3>
                             </div>
                         </div>
                         <div className="col-md-9 col-sm-8 p-a0">
@@ -44,11 +48,11 @@ class ModulePeugeotAccessariesCarousel extends Component {
                                         <div className="item dlab-new-item" key={key}>
                                             <div className="dlab-box">
                                                 <div className="dlab-media">
-                                                    <Link to={"/category/product/" + item.id + "/" + item.alias}><img src={item.image} alt={item.title} /></Link>
+                                                    <Link to={"/category/product/" + item.id + "/" + item.alias}><img src={item.image} alt={tt(item.title)} /></Link>
                                                 </div>
                                                 <div className="dlab-info">
-                                                    <p className="event-date">Phụ tùng</p>
-                                                    <h4 className="dlab-title"><Link to={"/category/product/" + item.id + "/" + item.alias}>{item.title} <i className="fa fa-angle-right pull-right"></i></Link></h4>
+                                                    <p className="event-date">{t('phutung')}</p>
+                                                    <h4 className="dlab-title"><Link to={"/category/product/" + item.id + "/" + item.alias}>{tt(item.title)} <i className="fa fa-angle-right pull-right"></i></Link></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -63,4 +67,4 @@ class ModulePeugeotAccessariesCarousel extends Component {
     }
 }
 
-export default ModulePeugeotAccessariesCarousel;
+export default translate('translations')(ModulePeugeotAccessariesCarousel);

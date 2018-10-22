@@ -47,27 +47,28 @@ const CatalogAddressTitle = ({ record }) => {
 export const CatalogAddressEdit = (props) => (
     <Edit title={<CatalogAddressTitle />} {...props}>
         <SimpleForm>
-            <DisabledInput source="id" />
-            <TextInput source="scope" label="Phạm vi" />
-            <TextInput source="type" label="Loại" />
-            <TextInput source="partyType" label="Công ty/Cá nhân" />
-            <TextInput source="name" label="Họ tên"/>
-            <TextInput source="address" label="Địa chỉ" />
-            <TextInput source="phone" label="Điện thoại"/>
-            <TextInput source="website" label="Trang web"/>
-            <TextInput source="tags" label="Tags"/>
-            <TextInput source="label" label="Nhãn" />
-            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true}>
+            <DisabledInput source="id" className="ra-field-33" />
+            <TextInput source="scope" label="Phạm vi" className="ra-field-33" />
+            <TextInput source="type" label="Loại" className="ra-field-33" />
+            <TextInput source="partyType" label="Công ty/Cá nhân" className="ra-field-33" />
+            <TextInput source="name" label="Họ tên" className="ra-field-33"/>
+            <TextInput source="address" label="Địa chỉ" className="ra-field-33" />
+            <TextInput source="phone" label="Điện thoại" className="ra-field-33"/>
+            <TextInput source="website" label="Trang web" className="ra-field-33"/>
+            <TextInput source="tags" label="Tags" className="ra-field-33"/>
+            <TextInput source="label" label="Nhãn" className="ra-field-33" />
+            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <BooleanInput source="status" label="Trạng thái" />
-            <BooleanInput source="deleted" label="Đã xóa" />
+            <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
+            <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+            <div class="clear-both">---------------------------</div>
         </SimpleForm>
     </Edit>
 );
@@ -75,26 +76,27 @@ export const CatalogAddressEdit = (props) => (
 export const CatalogAddressCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="scope" label="Phạm vi" />
-            <TextInput source="type" label="Loại" />
-            <TextInput source="partyType" label="Công ty/Cá nhân" />
-            <TextInput source="name" label="Họ tên" />
-            <TextInput source="address" label="Địa chỉ" />
-            <TextInput source="phone" label="Điện thoại" />
-            <TextInput source="website" label="Trang web" />
-            <TextInput source="tags" label="Tags" />
-            <TextInput source="label" label="Nhãn" />
-            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true}>
+            <TextInput source="scope" label="Phạm vi" className="ra-field-33" />
+            <TextInput source="type" label="Loại" className="ra-field-33" />
+            <TextInput source="partyType" label="Công ty/Cá nhân" className="ra-field-33" />
+            <TextInput source="name" label="Họ tên" className="ra-field-33" />
+            <TextInput source="address" label="Địa chỉ" className="ra-field-33" />
+            <TextInput source="phone" label="Điện thoại" className="ra-field-33" />
+            <TextInput source="website" label="Trang web" className="ra-field-33" />
+            <TextInput source="tags" label="Tags" className="ra-field-33" />
+            <TextInput source="label" label="Nhãn" className="ra-field-33" />
+            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <BooleanInput source="status" label="Trạng thái" />
-            <BooleanInput source="deleted" label="Đã xóa" />
+            <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
+            <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+            <div class="clear-both">---------------------------</div>
         </SimpleForm>
     </Create>
 );
@@ -102,26 +104,27 @@ export const CatalogAddressCreate = (props) => (
 export const CatalogAddressShow = (props) => (
     <Show title={<CatalogAddressTitle />} {...props}>
         <SimpleShowLayout>
-            <TextField source="id" />
-            <TextField source="scope" label="Phạm vi" />
-            <TextField source="type" label="Loại" />
-            <TextField source="name" label="Họ tên"/>
-            <TextField source="address" label="Địa chỉ" />
-            <TextField source="phone" label="Số điện thoại" />
-            <TextField source="website" label="Website" />
-            <TextField source="tags" label="Tags" />
-            <TextField source="label" label="Nhãn" />
-            <ReferenceField label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true}>
+            <TextField source="id" className="ra-field-33" />
+            <TextField source="scope" label="Phạm vi" className="ra-field-33" />
+            <TextField source="type" label="Loại" className="ra-field-33" />
+            <TextField source="name" label="Họ tên" className="ra-field-33"/>
+            <TextField source="address" label="Địa chỉ" className="ra-field-33" />
+            <TextField source="phone" label="Số điện thoại" className="ra-field-33" />
+            <TextField source="website" label="Website" className="ra-field-33" />
+            <TextField source="tags" label="Tags" className="ra-field-33" />
+            <TextField source="label" label="Nhãn" className="ra-field-33" />
+            <ReferenceField label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                 <TextField source="title" />
             </ReferenceField>
-            <ReferenceField label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+            <ReferenceField label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <TextField source="title" />
             </ReferenceField>
-            <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+            <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                 <TextField source="title" />
             </ReferenceField>
-            <BooleanField source="status" label="Trạng thái" />
-            <BooleanField source="deleted" label="Đã xóa" />
+            <BooleanField source="status" label="Trạng thái" className="ra-field-33" />
+            <BooleanField source="deleted" label="Đã xóa" className="ra-field-33" />
+            <div class="clear-both">---------------------------</div>
         </SimpleShowLayout>
     </Show>
 );

@@ -68,34 +68,36 @@ export const CatalogCategoryEdit = (props) => (
     <Edit title={<CatalogCategoryTitle />} {...props}>
         <TabbedForm>
             <FormTab label="Tổng quan">
-                <DisabledInput source="id" />
-                <TextInput source="type" label="Loại" />
-                <TextInput source="title" label="Tiêu đề" />
-                <TextInput source="alias" label="Bí danh" />
-                <TextInput source="image" label="Đường dẫn ảnh" />
-                <ReferenceInput label="Danh mục cha" source="parent_id" reference="catalog_categories" allowEmpty={true}>
+                <DisabledInput source="id" className="ra-field-33" />
+                <TextInput source="type" label="Loại" className="ra-field-33" />
+                <TextInput source="title" label="Tiêu đề" className="ra-field-33" />
+                <TextInput source="alias" label="Bí danh" className="ra-field-33" />
+                <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
+                <ReferenceInput label="Danh mục cha" source="parent_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>    
-                <TextInput source="link" label="Đường dẫn" />
-                <BooleanInput source="status" label="Trạng thái" />
-                <TextInput source="tags" label="Tags" />
+                <TextInput source="link" label="Đường dẫn" className="ra-field-33" />
+                <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
+                <TextInput source="tags" label="Tags" className="ra-field-33" />
+                <div class="clear-both">---------------------------</div>
             </FormTab>
             <FormTab label="Nội dung">
                 <LongTextInput source="brief" />
                 <RichTextInput source="content" toolbar={toolbar} />
             </FormTab>
             <FormTab label="Nâng cao">
-                <TextInput source="label" label="Nhãn" />
-                <BooleanInput source="deleted" label="Đã xóa" />
-                <TextInput source="parent_path" />
-                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                <TextInput source="label" label="Nhãn" className="ra-field-33" />
+                <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+                <TextInput source="parent_path" className="ra-field-33" />
+                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="source" label="Nguồn" />
-                <TextInput source="url" />
+                <TextInput source="source" label="Nguồn" className="ra-field-33" />
+                <TextInput source="url" className="ra-field-33" />
+                <div class="clear-both">---------------------------</div>
             </FormTab>
         </TabbedForm>
     </Edit>
@@ -105,33 +107,35 @@ export const CatalogCategoryCreate = (props) => (
     <Create {...props}>
         <TabbedForm>
             <FormTab label="Tổng quan">
-                <TextInput source="type" label="Loại" />
-                <TextInput source="title" label="Tiêu đề" />
-                <TextInput source="alias" label="Bí danh" />
-                <TextInput source="image" label="Đường dẫn ảnh" />
-                <ReferenceInput label="Danh mục cha" source="parent_id" reference="catalog_categories" allowEmpty={true}>
+                <TextInput source="type" label="Loại" className="ra-field-33" />
+                <TextInput source="title" label="Tiêu đề" className="ra-field-33" />
+                <TextInput source="alias" label="Bí danh" className="ra-field-33" />
+                <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
+                <ReferenceInput label="Danh mục cha" source="parent_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="link" label="Đường dẫn" />
-                <BooleanInput source="status" label="Trạng thái" />
-                <TextInput source="tags" label="Tags" />
+                <TextInput source="link" label="Đường dẫn" className="ra-field-33" />
+                <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
+                <TextInput source="tags" label="Tags" className="ra-field-33" />
+                <div class="clear-both">---------------------------</div>
             </FormTab>
             <FormTab label="Nội dung">
                 <LongTextInput source="brief" />
                 <RichTextInput source="content" toolbar={toolbar} />
             </FormTab>
             <FormTab label="Nâng cao">
-                <TextInput source="label" label="Nhãn" />
-                <BooleanInput source="deleted" label="Đã xóa" />
-                <TextInput source="parent_path" />
-                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+                <TextInput source="label" label="Nhãn" className="ra-field-33" />
+                <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+                <TextInput source="parent_path" className="ra-field-33" />
+                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="source" label="Nguồn" />
-                <TextInput source="url" />
+                <TextInput source="source" label="Nguồn" className="ra-field-33" />
+                <TextInput source="url" className="ra-field-33" />
+                <div class="clear-both">---------------------------</div>
             </FormTab>
         </TabbedForm>
     </Create>
@@ -141,35 +145,35 @@ export const CatalogCategoryShow = (props) => (
     <Show title={<CatalogCategoryTitle />} {...props}>
         <TabbedShowLayout>
             <Tab label="Tổng quan">
-                <TextField source="id" />
-                <TextField source="title" label="Tiêu đề" />
-                <TextField source="alias" label="Bí danh" />
-                <TextField source="image" label="Hình ảnh" />
-                <TextField source="link" label="Đường dẫn"/>
-                <ReferenceField label="Danh mục cha" source="parent_id" reference="catalog_categories">
+                <TextField source="id" className="ra-field-33" />
+                <TextField source="title" label="Tiêu đề" className="ra-field-33" />
+                <TextField source="alias" label="Bí danh" className="ra-field-33" />
+                <TextField source="image" label="Hình ảnh" className="ra-field-33" />
+                <TextField source="link" label="Đường dẫn" className="ra-field-33" />
+                <ReferenceField label="Danh mục cha" source="parent_id" reference="catalog_categories" className="ra-field-33">
                     <TextField source="title" />
                 </ReferenceField>
-                <BooleanField source="status" label="Trạng thái" />
-                <TextField source="source" label="Nguồn" />
-                <TextField source="tags" label="Tags" />
-                <TextField source="type" label="Loại" />
-                <TextField source="url" />
+                <BooleanField source="status" label="Trạng thái" className="ra-field-33" />
+                <TextField source="source" label="Nguồn" className="ra-field-33" />
+                <TextField source="tags" label="Tags" className="ra-field-33" />
+                <TextField source="type" label="Loại" className="ra-field-33" />
+                <TextField source="url" className="ra-field-33" />
             </Tab>
             <Tab label="Nội dung">
                 <TextField source="brief" label="Tóm tắt" />
                 <RichTextField source="content" label="Nội dung" />
             </Tab>
             <Tab label="Nâng cao">
-                <TextField source="label" label="Nhãn" />
-                <TextField source="created_at" label="Ngày tạo" />
-                <TextField source="updated_at" label="Ngày sửa" />
-                <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares">
+                <TextField source="label" label="Nhãn" className="ra-field-33" />
+                <TextField source="created_at" label="Ngày tạo" className="ra-field-33" />
+                <TextField source="updated_at" label="Ngày sửa" className="ra-field-33" />
+                <ReferenceField label="Ứng dụng" source="software_id" reference="portal_softwares" className="ra-field-33">
                     <TextField source="title" />
                 </ReferenceField>
-                <ReferenceField label="Trang web" source="site_id" reference="portal_sites">
+                <ReferenceField label="Trang web" source="site_id" reference="portal_sites" className="ra-field-33">
                     <TextField source="title" />
                 </ReferenceField>
-                <BooleanField source="deleted" label="Đã xóa" />
+                <BooleanField source="deleted" label="Đã xóa" className="ra-field-33" />
             </Tab>
             <Tab label="Bài viết" path="cms_posts">
                 <ReferenceManyField reference="cms_posts" target="category_id" addLabel={false}>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ModulePeugeotEcommerceProductCategoryNavigation from './Category/Navigation';
 import ModulePeugeotEcommerceProductCategoryList from './Category/List';
+import { translate } from 'react-i18next';
 
 class ModulePeugeotEcommerceProductCategory extends Component {
     render() {
@@ -13,4 +14,4 @@ class ModulePeugeotEcommerceProductCategory extends Component {
     }
 }
 
-export default ModulePeugeotEcommerceProductCategory;
+export default translate('translations')(ModulePeugeotEcommerceProductCategory);

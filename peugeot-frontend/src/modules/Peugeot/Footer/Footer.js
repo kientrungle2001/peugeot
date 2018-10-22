@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import ModulePeugeotFooterFloatbar from './Floatbar'
+import ModulePeugeotFooterFloatbar from './Floatbar';
+import { translate } from 'react-i18next';
+
 class ModulePeugeotFooter extends Component {
     render() {
+        const { t } = this.props;
         return (
             <div>
                 <footer className="site-footer">
@@ -11,17 +14,17 @@ class ModulePeugeotFooter extends Component {
                                 <div className="col-md-3 col-sm-6 col-xs-6 footer-col-4">
                                     <div className="widget widget_about">
                                         <div className="logo-footer"><img src="/img/logo_footer.png" alt="Logo VHP Auto" /></div>
-                                        <p className="m-tb20"><strong>VHP Auto</strong> is simply dummy text of the print ing and in type setting industry. Lorem Ipsum has bee the industry's standard...</p>
+                                        <p className="m-tb20"><strong>VHP Auto</strong> {t('vhp_intro_text')}</p>
 
                                         <ul className="dlab-contact-info">
-                                            <li><i className="flaticon-placeholder"></i>Số 17/331 Trần Khát Chân, P.Thanh Nhàn, Q.Hai Bà Trưng, TP.Hà Nội</li>
-                                            <li><i className="flaticon-customer-service"></i>Phone : 0800-123456 (24/7 Support Line)</li>
+                                            <li><i className="flaticon-placeholder"></i>{t('vhp_address')}</li>
+                                            <li><i className="flaticon-customer-service"></i>{t('vhp_phone')}</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div className="col-md-3 col-sm-6 col-xs-6 footer-col-4">
                                     <div className="widget widget_services">
-                                        <h4 className="m-b15 text-uppercase">Quy định - chính sách</h4>
+                                        <h4 className="m-b15 text-uppercase">{t('term_and_conditions')}</h4>
                                         <div className="dlab-separator"></div>
                                         <ul>
                                             <li><a href="new-car-latest.html">Latest Cars</a></li>
@@ -35,7 +38,7 @@ class ModulePeugeotFooter extends Component {
                                 </div>
                                 <div className="col-md-3 col-sm-6 col-xs-6 footer-col-4">
                                     <div className="widget recent-posts-entry">
-                                        <h4 className="m-b15 text-uppercase">Tin tức Peugeot </h4>
+                                        <h4 className="m-b15 text-uppercase">{t('peugeot_news')} </h4>
                                         <div className="dlab-separator"></div>
                                         <div className="widget-post-bx">
                                             <div className="widget-post clearfix">
@@ -85,16 +88,16 @@ class ModulePeugeotFooter extends Component {
                                 </div>
                                 <div className="col-md-3 col-sm-6 col-xs-6 footer-col-4">
                                     <div className="widget ">
-                                        <h4 className="m-b15 text-uppercase">Đăng ký nhận thông tin</h4>
+                                        <h4 className="m-b15 text-uppercase">{t('newsletter_subscription')}</h4>
                                         <div className="dlab-separator"></div>
-                                        <p className="m-tb20">Nếu bạn để lại email khi website cập nhật sản phẩm mới bạn sẽ nhận được thông báo ngay lập tức</p>
+                                        <p className="m-tb20">{t('newsletter_message')}</p>
                                         <form className="dlab-subscribe-form">
                                             <div className="input-group m-b15">
-                                                <input name="dzEmail" required="" className="form-control " type="email" placeholder="Enter Your Email" />
+                                                <input name="dzEmail" required="" className="form-control " type="email" placeholder={t('enter_your_email')} />
                                             </div>
                                             <div className="input-group">
                                                 <button name="submit" type="submit" value="Submit" className="site-button btn-block">
-                                                    Đăng ký <i className="fa fa-angle-right font-18 m-l10"></i>
+                                                    {t('subscribe')} <i className="fa fa-angle-right font-18 m-l10"></i>
                                                 </button>
                                             </div>
                                         </form>
@@ -124,13 +127,11 @@ class ModulePeugeotFooter extends Component {
                             <div className="row">
                                 <div className="col-md-6 col-sm-6 text-left"> © Copyright 2018 - VHP Auto</div>
                                 <div className="col-md-6 col-sm-6 text-right ">
-                                    <a href="/"> Giới thiệu</a> | <a href="/"> Liên hệ</a> | <a href="/"> Tuyển dụng</a>
+                                    <a href="/"> {t('introduction')}</a> | <a href="/"> {t('contact')}</a> | <a href="/"> {t('recruitement')}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </footer>
                 <ModulePeugeotFooterFloatbar />
             </div>
@@ -138,4 +139,4 @@ class ModulePeugeotFooter extends Component {
     }
 }
 
-export default ModulePeugeotFooter;
+export default translate('translations')(ModulePeugeotFooter);

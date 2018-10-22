@@ -3,15 +3,19 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PagePeugeotHome from './pages/Peugeot/Home/Home';
 import PagePeugeotCmsPost from './pages/Peugeot/Cms/Post';
+import PagePeugeotCmsContact from './pages/Peugeot/Cms/Contact';
 import PagePeugeotCategoryProduct from './pages/Peugeot/Category/Product';
 import PagePeugeotEcommerceProduct from './pages/Peugeot/Ecommerce/Product';
 import PagePeugeotCategoryNews from './pages/Peugeot/Category/News';
-import { Provider } from 'react-redux';
-import { store } from 'reducers/store';
-import ScrollToTopRoute from './ScrollToTopRoute';
 import PagePeugeotEcommerceCart from './pages/Peugeot/Ecommerce/Cart';
 import PagePeugeotEcommerceCheckout from './pages/Peugeot/Ecommerce/Checkout';
+import PagePeugeotEcommerceSearch from './pages/Peugeot/Ecommerce/Search';
 import ModulePeugeotCmsPage from './modules/Peugeot/Cms/Page';
+import ScrollToTopRoute from './ScrollToTopRoute';
+import { Provider } from 'react-redux';
+import { store } from 'reducers/store';
+import queryString from 'query-string';
+
 class App extends Component {
   render() {
     return (
@@ -19,8 +23,21 @@ class App extends Component {
         <Router>
           <div>
             <Route path="/" exact strict component={PagePeugeotHome} />
+            <Route path="/contact" exact strict component={PagePeugeotCmsContact} />
             <Route path="/cart" exact strict component={PagePeugeotEcommerceCart} />
             <Route path="/checkout" exact strict component={PagePeugeotEcommerceCheckout} />
+            <ScrollToTopRoute path="/search" exact strict component={function (args) {
+              const values = queryString.parse(args.location.search);
+              return (
+                <PagePeugeotEcommerceSearch name={values.name} code={values.code} page={0} />
+              );
+            }} />
+            <ScrollToTopRoute path="/search/:page" exact strict component={function (args) {
+              const values = queryString.parse(args.location.search);
+              return (
+                <PagePeugeotEcommerceSearch name={values.name} code={values.code} page={parseInt(args.match.params.page, 10)} />
+              );
+            }} />
               <ScrollToTopRoute path="/about" exact strict component={props => <PagePeugeotCmsPost {...props} itemId={9} />} />
               <ScrollToTopRoute path="/posts/:type/:id/:alias" exact strict component={function (args) {
               return (

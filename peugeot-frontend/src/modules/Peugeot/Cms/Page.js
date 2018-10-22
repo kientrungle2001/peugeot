@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { peugeot_api_url } from 'peugeot_constants';
+import { tt } from 'peugeot_language';
+
 class ModulePeugeotCmsPage extends Component {
     componentDidMount() {
         var that = this;
@@ -13,7 +15,7 @@ class ModulePeugeotCmsPage extends Component {
     }
     render() {
         return (
-            <div className="page-content" dangerouslySetInnerHTML={{ __html: this.state && (this.state.content.replace(/\[\[/g, '<').replace(/\]\]/g, '>') || '') }}></div>
+            <div className="page-content" dangerouslySetInnerHTML={{ __html: this.state && tt((this.state.content || '')) }}></div>
         );
     }
 }

@@ -1,6 +1,6 @@
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource, fetchUtils } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import addUploadCapabilities from './addUploadCapabilities';
 
@@ -8,6 +8,18 @@ import authProvider from './authProvider';
 import vietnameseMessages from 'ra-language-vietnamese';
 
 import Dashboard from './dashboard';
+
+/**
+ * Account
+ */
+
+import {
+  AccountUserList,
+  AccountUserEdit,
+  AccountUserCreate,
+  AccountUserShow
+} from './account_users';
+
 /**
  * Cms
  */
@@ -113,23 +125,46 @@ import AppsIcon from '@material-ui/icons/Apps';
 import WebIcon from '@material-ui/icons/Web';
 
 import './App.css';
+import customRoutes from './custom_routes';
+import MyLayout from './MyLayout';
+
+
 
 const messages = {
   'vi': vietnameseMessages,
 };
 // const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 // const dataProvider = jsonServerProvider('http://localhost:8000/api');
-const dataProvider = jsonServerProvider('http://api.phutungpeugeot.com/api');
-const uploadCapableDataProvider = addUploadCapabilities(dataProvider);
+//const dataProvider = jsonServerProvider('http://api.phutungpeugeot.com/api');
 
+const httpClient = (url, options = {}) => {
+  if (!options.headers) {
+    options.headers = new Headers({ Accept: 'application/json' });
+  }
+  const token = localStorage.getItem('token');
+  options.headers.set('Authorization', `${token}`);
+  return fetchUtils.fetchJson(url, options);
+}
+const dataProvider = jsonServerProvider('http://api.phutungpeugeot.com/api', httpClient);
+const uploadCapableDataProvider = addUploadCapabilities(dataProvider);
 const App = () => (
   <Admin 
+    appLayout={MyLayout}
+    customRoutes={customRoutes}
     locale="vi" messages={messages} 
     dataProvider={uploadCapableDataProvider} 
     dashboard={Dashboard} 
     authProvider={authProvider} 
     title="Quản trị Peugeot">
     
+    <Resource
+      name="account_users"
+      list={AccountUserList}
+      edit={AccountUserEdit}
+      create={AccountUserCreate}
+      show={AccountUserShow}
+      label="Người dùng" title="Người dùng"
+      options={{ label: 'Người dùng' }} />
     <Resource 
       name="catalog_categories" 
       list={CatalogCategoryList} 

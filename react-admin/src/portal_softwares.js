@@ -8,7 +8,7 @@ import {
 
 const PortalSoftwareFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
+        <TextInput label="Tìm kiếm" source="q" alwaysOn />
     </Filter>
 );
 
@@ -22,7 +22,7 @@ export const PortalSoftwareList = (props) => (
             <TextField source="label" label="Nhãn" />
             <TextField source="created_at" label="Ngày tạo" />
             <TextField source="updated_at" label="Ngày sửa" />
-            <EditButton />
+            <EditButton label="Sửa" />
         </Datagrid>
     </List>
 );
@@ -34,16 +34,17 @@ const PortalSoftwareTitle = ({ record }) => {
 export const PortalSoftwareEdit = (props) => (
     <Edit title={<PortalSoftwareTitle />} {...props}>
         <SimpleForm>
-            <DisabledInput source="id" />
-            <TextInput source="title" />
-            <TextInput source="name" />
-            <TextInput source="label" />
-            <ReferenceInput label="Parent" source="parent_id" reference="portal_softwares" allowEmpty={true}>
+            <DisabledInput source="id" className="ra-field-33" />
+            <TextInput source="title" className="ra-field-33" />
+            <TextInput source="name" className="ra-field-33" />
+            <TextInput source="label" className="ra-field-33" />
+            <ReferenceInput label="Parent" source="parent_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="name" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <TextInput source="parent_path" />
-            <BooleanInput source="status" />
-            <BooleanInput source="deleted" />
+            <TextInput source="parent_path" className="ra-field-33" />
+            <BooleanInput source="status" className="ra-field-33" />
+            <BooleanInput source="deleted" className="ra-field-33" />
+            <div className="clear-both">------------------------------</div>
         </SimpleForm>
     </Edit>
 );
@@ -51,15 +52,16 @@ export const PortalSoftwareEdit = (props) => (
 export const PortalSoftwareCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="title" />
-            <TextInput source="name" />
-            <TextInput source="label" />
-            <ReferenceInput label="Parent" source="parent_id" reference="portal_softwares" allowEmpty={true}>
+            <TextInput source="title" className="ra-field-33" />
+            <TextInput source="name" className="ra-field-33" />
+            <TextInput source="label" className="ra-field-33" />
+            <ReferenceInput label="Ứng dụng cha" source="parent_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="name" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <TextInput source="parent_path" />
-            <BooleanInput source="status" />
-            <BooleanInput source="deleted" />
+            <TextInput source="parent_path" className="ra-field-33" />
+            <BooleanInput source="status" className="ra-field-33" />
+            <BooleanInput source="deleted" className="ra-field-33" />
+            <div className="clear-both">------------------------------</div>
         </SimpleForm>
     </Create>
 );

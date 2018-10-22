@@ -34,7 +34,7 @@ export const EcommerceOrderList = (props) => (
             </ReferenceField>
             <BooleanField source="status" label="Trạng thái" />
             <EditButton label="Sửa" />
-            <ShowButton label="Xóa" />
+            <ShowButton label="Xem" />
         </Datagrid>
     </List>
 );
@@ -72,23 +72,24 @@ export const EcommerceOrderEdit = (props) => (
 export const EcommerceOrderCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <ReferenceInput label="Khách hàng" source="customer_id" reference="ecommerce_customers" allowEmpty={true}>
+            <ReferenceInput label="Khách hàng" source="customer_id" reference="ecommerce_customers" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="fullname" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <TextInput source="discount" label="Giảm giá" />
-            <TextInput source="discount_policy_id" label="Chính sách giảm giá" />
-            <TextInput source="total_before_discount" label="Tổng trước giảm giá" />
-            <TextInput source="tax" label="Thuế" />
-            <TextInput source="total_before_tax" label="Tổng trước thuế" />
-            <TextInput source="total_amount" label="Tổng tiền" />
-            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+            <TextInput source="discount" className="ra-field-33" label="Giảm giá" />
+            <TextInput source="discount_policy_id" className="ra-field-33" label="Chính sách giảm giá" />
+            <TextInput source="total_before_discount" className="ra-field-33" label="Tổng trước khi giảm giá" />
+            <TextInput source="tax" className="ra-field-33" label="Thuế" />
+            <TextInput source="total_before_tax" className="ra-field-33" label="Tổng trước thuế" />
+            <TextInput source="total_amount" className="ra-field-33" label="Tổng tiền" />
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <BooleanInput source="status" label="Trạng thái" />
-            <BooleanInput source="deleted" label="Đã xóa" />
+            <BooleanInput source="status" className="ra-field-33" label="Trạng thái" />
+            <BooleanInput source="deleted" className="ra-field-33" label="Đã xóa" />
+            <div className="clear-both">------------------------------</div>
         </SimpleForm>
     </Create>
 );

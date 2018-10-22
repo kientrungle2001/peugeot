@@ -43,26 +43,27 @@ const EcommerceCustomerTitle = ({ record }) => {
 export const EcommerceCustomerEdit = (props) => (
     <Edit title={<EcommerceCustomerTitle />} {...props}>
         <SimpleForm>
-            <DisabledInput source="id" />
-            <TextInput source="email" label="Email" />
-            <TextInput source="fullname" label="Họ tên" />
-            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true}>
+            <DisabledInput source="id" className="ra-field-33" />
+            <TextInput source="email" label="Email" className="ra-field-33" />
+            <TextInput source="fullname" label="Họ tên" className="ra-field-33" />
+            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Địa chỉ thanh toán" source="default_billing_address_id" reference="catalog_addresses" allowEmpty={true}>
+            <ReferenceInput label="Địa chỉ thanh toán" source="default_billing_address_id" reference="catalog_addresses" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="address" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Địa chỉ giao hàng" source="default_shipping_address_id" reference="catalog_addresses" allowEmpty={true}>
+            <ReferenceInput label="Địa chỉ giao hàng" source="default_shipping_address_id" reference="catalog_addresses" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="address" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                 <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
-            <BooleanInput source="status" label="Trạng thái" />
-            <BooleanInput source="deleted" label="Đã xóa" />
+            <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
+            <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+            <div class="clear-both">---------------------------</div>
         </SimpleForm>
     </Edit>
 );
@@ -70,25 +71,26 @@ export const EcommerceCustomerEdit = (props) => (
 export const EcommerceCustomerCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="email" />
-            <TextInput source="fullname" label="Họ tên" />
-            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true}>
+            <TextInput source="email" className="ra-field-33" />
+            <TextInput source="fullname" label="Họ tên" className="ra-field-33" />
+            <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                 <SelectInput source="title" />
             </ReferenceInput>
-            <ReferenceInput label="Địa chỉ thanh toán" source="default_billing_address_id" reference="catalog_addresses" allowEmpty={true}>
+            <ReferenceInput label="Địa chỉ thanh toán" source="default_billing_address_id" reference="catalog_addresses" allowEmpty={true} className="ra-field-33">
                 <SelectInput source="address" />
             </ReferenceInput>
-            <ReferenceInput label="Địa chỉ giao hàng" source="default_shipping_address_id" reference="catalog_addresses" allowEmpty={true}>
+            <ReferenceInput label="Địa chỉ giao hàng" source="default_shipping_address_id" reference="catalog_addresses" allowEmpty={true} className="ra-field-33">
                 <SelectInput source="address" />
             </ReferenceInput>
-            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+            <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                 <SelectInput source="title" />
             </ReferenceInput>
-            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+            <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                 <SelectInput source="title" />
             </ReferenceInput>
-            <BooleanInput source="status" label="Trạng thái" />
-            <BooleanInput source="deleted" label="Đã xóa" />
+            <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
+            <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+            <div class="clear-both">---------------------------</div>
         </SimpleForm>
     </Create>
 );
@@ -117,6 +119,7 @@ export const EcommerceCustomerShow = (props) => (
                 </ReferenceField>
                 <BooleanField source="status" label="Trạng thái" className="ra-field-25" />
                 <BooleanField source="deleted" label="Đã xóa" className="ra-field-25" />
+                <div class="clear-both">---------------------------</div>
             </Tab>
             <Tab label="Đơn hàng" path="ecommerce_orders">
                 <ReferenceManyField reference="ecommerce_orders" target="customer_id" addLabel={false}>

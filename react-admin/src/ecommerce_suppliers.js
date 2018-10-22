@@ -8,10 +8,10 @@ import RichTextInput from 'ra-input-rich-text';
 
 const EcommerceSupplierFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
-        <TextInput label="Software" source="software_id" />
-        <TextInput label="Site" source="site_id" />
-        <TextInput label="CategoryId" source="category_id" />
+        <TextInput label="Tìm kiếm" source="q" alwaysOn />
+        <TextInput label="Ứng dụng" source="software_id" />
+        <TextInput label="Website" source="site_id" />
+        <TextInput label="Danh mục" source="category_id" />
     </Filter>
 );
 
@@ -41,34 +41,36 @@ const EcommerceSupplierTitle = ({ record }) => {
 export const EcommerceSupplierEdit = (props) => (
     <Edit title={<EcommerceSupplierTitle />} {...props}>
         <TabbedForm>
-            <FormTab label="summary">
+            <FormTab label="Tổng quan">
                 <DisabledInput source="id" />
-                <TextInput source="title" />
-                <TextInput source="alias" />
-                <ReferenceInput label="Category" source="category_id" reference="catalog_categories" allowEmpty={true}>
+                <TextInput source="title" className="ra-field-33" label="Tiêu đề" />
+                <TextInput source="alias" className="ra-field-33" label="Bí danh" />
+                <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="image" />
-                <TextInput source="tags" />
-                <TextInput source="source" />
-                <BooleanInput source="status" />
-                <TextInput source="url" />
+                <TextInput source="image" className="ra-field-33" label="Đường dẫn ảnh" />
+                <TextInput source="tags" className="ra-field-33" label="Tags" />
+                <TextInput source="source" className="ra-field-33" label="Nguồn" />
+                <BooleanInput source="status" className="ra-field-33" label="Trạng thái" />
+                <TextInput source="url" className="ra-field-33" />
+                <div className="clear-both">------------------------------</div>
             </FormTab>
-            <FormTab label="content">
-                <LongTextInput source="brief" />
-                <RichTextInput source="content" />
+            <FormTab label="Nội dung">
+                <LongTextInput source="brief" label="Tóm tắt" />
+                <RichTextInput source="content" label="Nội dung" />
             </FormTab>
-            <FormTab label="advance">
-                <TextInput source="type" />
-                <TextInput source="label" />
-                <TextInput source="link" />
-                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+            <FormTab label="Nâng cao">
+                <TextInput source="type" className="ra-field-33" label="Loại" />
+                <TextInput source="label" className="ra-field-33" label="Nhãn" />
+                <TextInput source="link" className="ra-field-33" label="Liên kết" />
+                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <BooleanInput source="deleted" />
+                <BooleanInput source="deleted" className="ra-field-33" label="Đã xóa" />
+                <div className="clear-both">------------------------------</div>
             </FormTab>
             {/*
                 <TextInput source="alias" />
@@ -97,33 +99,35 @@ export const EcommerceSupplierEdit = (props) => (
 export const EcommerceSupplierCreate = (props) => (
     <Create {...props}>
         <TabbedForm>
-            <FormTab label="summary">
-                <TextInput source="title" />
-                <TextInput source="alias" />
-                <ReferenceInput label="Category" source="category_id" reference="catalog_categories" allowEmpty={true}>
+            <FormTab label="Tổng quan">
+                <TextInput source="title" className="ra-field-33" label="Tiêu đề" />
+                <TextInput source="alias" className="ra-field-33" label="Bí danh" />
+                <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="image" />
-                <TextInput source="tags" />
-                <TextInput source="source" />
-                <BooleanInput source="status" />
-                <TextInput source="url" />
+                <TextInput source="image" className="ra-field-33" label="Đường dẫn ảnh" />
+                <TextInput source="tags" className="ra-field-33" label="Tags" />
+                <TextInput source="source" className="ra-field-33" label="Nguồn" />
+                <BooleanInput source="status" className="ra-field-33" label="Trạng thái" />
+                <TextInput source="url" className="ra-field-33" />
+                <div className="clear-both">------------------------------</div>
             </FormTab>
-            <FormTab label="content">
-                <LongTextInput source="brief" />
-                <RichTextInput source="content" />
+            <FormTab label="Nội dung">
+                <LongTextInput source="brief" label="Tóm tắt" />
+                <RichTextInput source="content" label="Nội dung" />
             </FormTab>
-            <FormTab label="advance">
-                <TextInput source="type" />
-                <TextInput source="label" />
-                <TextInput source="link" />
-                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true}>
+            <FormTab label="Nâng cao">
+                <TextInput source="type" className="ra-field-33" label="Loại" />
+                <TextInput source="label" className="ra-field-33" label="Nhãn" />
+                <TextInput source="link" className="ra-field-33" label="Liên kết" />
+                <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true}>
+                <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <BooleanInput source="deleted" />
+                <BooleanInput source="deleted" className="ra-field-33" label="Đã xóa" />
+                <div className="clear-both">------------------------------</div>
             </FormTab>
         </TabbedForm>
     </Create>

@@ -33,7 +33,7 @@ export const EcommerceOrderProductList = (props) => (
                 <TextField source="title" />
             </ReferenceField>
             <EditButton label="Sửa" />
-            <ShowButton label="Xóa" />
+            <ShowButton label="Xem" />
         </Datagrid>
     </List>
 );

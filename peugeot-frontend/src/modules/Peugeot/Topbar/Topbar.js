@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-
+import { tt } from 'peugeot_language';
+import { translate } from 'react-i18next';
 class ModulePeugeotTopbar extends Component {
     render() {
+        const { t} = this.props;
         return (
             <div className="top-bar">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
-                            <a href="/">Báo giá số lượng lớn!</a>
-                            <a href="/">Hình thức đặt hàng!</a>
+                            <a href="/">{t('more_pricing')}</a>
+                            <a href="/">{t('order_method')}</a>
                         </div>
                         <div className="col-md-6 text-right">
                             <a href="/"><i className="fas fa-envelope"></i> vhp-auto@website.com</a>
@@ -24,4 +26,4 @@ class ModulePeugeotTopbar extends Component {
     }
 }
 
-export default ModulePeugeotTopbar;
+export default translate('translations')(ModulePeugeotTopbar);

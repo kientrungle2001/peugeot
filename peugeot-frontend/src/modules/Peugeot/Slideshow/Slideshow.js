@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { tt } from 'peugeot_language';
+import { translate } from 'react-i18next';
 
 class ModulePeugeotSlideshow extends Component {
     render() {
@@ -40,4 +42,4 @@ class ModulePeugeotSlideshow extends Component {
     }
 }
 
-export default ModulePeugeotSlideshow;
+export default translate('translations')(ModulePeugeotSlideshow);
