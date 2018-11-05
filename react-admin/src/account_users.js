@@ -4,7 +4,7 @@ import {
     Datagrid, EditButton, ShowButton,
     TextField, ReferenceField, BooleanField,
     SimpleShowLayout,
-    SimpleForm, DisabledInput, TextInput, ReferenceInput, SelectInput, BooleanInput
+    SimpleForm, DisabledInput, TextInput, ReferenceInput, SelectInput, AutocompleteInput, BooleanInput
 } from 'react-admin';
 
 const AccountUserFilter = (props) => (
@@ -47,10 +47,10 @@ export const AccountUserEdit = (props) => (
             <TextInput source="password" label="Mật khẩu" className="ra-field-33" />
             <TextInput source="name" label="Họ và tên" className="ra-field-33" />
             <ReferenceInput label="Website" source="site_id" reference="portal_sites" allowEmpty={true} className="ra-field-33">
-                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+                <AutocompleteInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
             <ReferenceInput label="Ứng dụng" source="software_id" reference="portal_softwares" allowEmpty={true} className="ra-field-33">
-                <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+                <AutocompleteInput optionText="title" optionValue="id" allowEmpty={true} />
             </ReferenceInput>
             <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
             <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />

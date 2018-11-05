@@ -3,6 +3,7 @@ import ModulePeugeotHeaderInner from 'modules/Peugeot/Header/Inner';
 import ModulePeugeotFooter from 'modules/Peugeot/Footer/Footer';
 import ModulePeugeotEcommerceProductCategory from 'modules/Peugeot/Ecommerce/Product/Category';
 import './Category.css';
+
 class PagePeugeotCategoryProduct extends Component {
 
     render() {

@@ -25,6 +25,7 @@ export const CatalogAddressList = (props) => (
             <TextField source="name" label="Tên đầy đủ" />
             <TextField source="address" label="Địa chỉ" />
             <TextField source="phone" label="Số điện thoại" />
+            <TextField source="email" label="Email" />
             <ReferenceField label="Danh mục" source="category_id" reference="catalog_categories">
                 <TextField source="title" />
             </ReferenceField>
@@ -54,6 +55,7 @@ export const CatalogAddressEdit = (props) => (
             <TextInput source="name" label="Họ tên" className="ra-field-33"/>
             <TextInput source="address" label="Địa chỉ" className="ra-field-33" />
             <TextInput source="phone" label="Điện thoại" className="ra-field-33"/>
+            <TextInput source="email" label="Email" className="ra-field-33" />
             <TextInput source="website" label="Trang web" className="ra-field-33"/>
             <TextInput source="tags" label="Tags" className="ra-field-33"/>
             <TextInput source="label" label="Nhãn" className="ra-field-33" />
@@ -82,6 +84,7 @@ export const CatalogAddressCreate = (props) => (
             <TextInput source="name" label="Họ tên" className="ra-field-33" />
             <TextInput source="address" label="Địa chỉ" className="ra-field-33" />
             <TextInput source="phone" label="Điện thoại" className="ra-field-33" />
+            <TextInput source="email" label="Email" className="ra-field-33" />
             <TextInput source="website" label="Trang web" className="ra-field-33" />
             <TextInput source="tags" label="Tags" className="ra-field-33" />
             <TextInput source="label" label="Nhãn" className="ra-field-33" />
@@ -110,6 +113,7 @@ export const CatalogAddressShow = (props) => (
             <TextField source="name" label="Họ tên" className="ra-field-33"/>
             <TextField source="address" label="Địa chỉ" className="ra-field-33" />
             <TextField source="phone" label="Số điện thoại" className="ra-field-33" />
+            <TextField source="email" label="Email" className="ra-field-33" />
             <TextField source="website" label="Website" className="ra-field-33" />
             <TextField source="tags" label="Tags" className="ra-field-33" />
             <TextField source="label" label="Nhãn" className="ra-field-33" />

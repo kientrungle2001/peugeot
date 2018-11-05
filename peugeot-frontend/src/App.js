@@ -22,6 +22,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
+            
             <Route path="/" exact strict component={PagePeugeotHome} />
             <Route path="/contact" exact strict component={PagePeugeotCmsContact} />
             <Route path="/cart" exact strict component={PagePeugeotEcommerceCart} />

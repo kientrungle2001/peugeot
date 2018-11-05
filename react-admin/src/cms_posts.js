@@ -72,7 +72,7 @@ export const CmsPostEdit = (props) => (
                 <TextInput source="source" label="Nguồn" className="ra-field-33" />
                 <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
                 <TextInput source="url" className="ra-field-33" />
-                <div class="clear-both">---------------------------</div>
+                <div className="clear-both" basePath="/">---------------------------</div>
             </FormTab>
             <FormTab label="Nội dung">
                 <LongTextInput source="brief" label="Tóm tắt" />
@@ -93,7 +93,9 @@ export const CmsPostEdit = (props) => (
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
                 <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
-                <div class="clear-both">---------------------------</div>
+                <TextInput source="keywords" className="ra-field-33" />
+                <TextInput source="description" className="ra-field-33" />
+                <div className="clear-both" basePath="/">---------------------------</div>
             </FormTab>
             {/*
                 <TextInput source="alias" />
@@ -101,7 +103,7 @@ export const CmsPostEdit = (props) => (
             <TextInput source="category_id" />
             <RichTextInput source="content" />
             <BooleanInput source="deleted" />
-            <TextInput source="image" />
+            <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
             <TextInput source="label" />
             <TextInput source="link" />
             <TextInput source="parent_id" />
@@ -154,6 +156,8 @@ export const CmsPostCreate = (props) => (
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
                 <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+                <TextInput source="keywords" className="ra-field-33" />
+                <TextInput source="description" className="ra-field-33" />
                 <div class="clear-both">---------------------------</div>
             </FormTab>
         </TabbedForm>

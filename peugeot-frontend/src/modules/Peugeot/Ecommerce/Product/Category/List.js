@@ -3,9 +3,8 @@ import Axios from 'axios';
 import {peugeot_api_url} from 'peugeot_constants';
 import chunk from 'chunk';
 import {Link} from 'react-router-dom';
-import formatCurrency from 'format-currency';
 import { translate } from 'react-i18next';
-import { tt } from 'peugeot_language';
+import ModulePeugeotEcommerceProductItem from '../Item';
 
 
 class ModulePeugeotEcommerceProductCategoryList extends Component {
@@ -37,14 +36,7 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
                             <div className="row" key={key}>
                                 {chunk.map((item, index) => {
                                     return (
-                                        <div className={"col-md-3 col-6 text-center cate" + (index + 1)} key={index}>
-                                            <img src={item.image} alt={item.title} className="img-fluid" />
-                                            <div className="info-product">
-                                                <p className="line-img-product"></p>
-                                                <Link className="titleSP-product" to={"/product/" + item.type + "/" + this.props.categoryId + "/" + this.props.alias + "/" + item.id + "/" + item.alias}>{item.sku}<br />{tt(item.title)}</Link>
-                                            </div>
-                                            <p className="price">{t('price')}: {item.price ? formatCurrency(item.price) + (item.unit ? 'đ / ' + item.unit: '')  : t('contact')}</p>
-                                        </div>
+                                        <ModulePeugeotEcommerceProductItem key={'product-item-'+key + '-' + index} item={item} index={index} />
                                     );
                                 })}
                                 
@@ -64,7 +56,7 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
                         {this.state && this.state.pages.map(
                             (page, index) => {
                                 return (
-                                    <li className={"page-item " + (page === this.props.page ? 'active': '')} key={index}>
+                                    <li className={"page-item " + (page === this.props.page ? 'active': '')} key={'product-page-'+index}>
                                         <Link className="page-link" to={'/category/product/' + this.props.categoryId + '/' + this.props.alias + '/' + page}>{page}</Link>
                                     </li>
                                 );

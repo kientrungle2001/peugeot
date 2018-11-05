@@ -5,7 +5,7 @@ import {
     TabbedForm, FormTab, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
-
+import UploadInput from 'UploadInput';
 const EcommerceSupplierFilter = (props) => (
     <Filter {...props}>
         <TextInput label="Tìm kiếm" source="q" alwaysOn />
@@ -48,7 +48,7 @@ export const EcommerceSupplierEdit = (props) => (
                 <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="image" className="ra-field-33" label="Đường dẫn ảnh" />
+                <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
                 <TextInput source="tags" className="ra-field-33" label="Tags" />
                 <TextInput source="source" className="ra-field-33" label="Nguồn" />
                 <BooleanInput source="status" className="ra-field-33" label="Trạng thái" />
@@ -78,7 +78,7 @@ export const EcommerceSupplierEdit = (props) => (
             <TextInput source="category_id" />
             <RichTextInput source="content" />
             <BooleanInput source="deleted" />
-            <TextInput source="image" />
+            <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
             <TextInput source="label" />
             <TextInput source="link" />
             <TextInput source="parent_id" />
@@ -105,7 +105,7 @@ export const EcommerceSupplierCreate = (props) => (
                 <ReferenceInput label="Danh mục" source="category_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="image" className="ra-field-33" label="Đường dẫn ảnh" />
+                <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
                 <TextInput source="tags" className="ra-field-33" label="Tags" />
                 <TextInput source="source" className="ra-field-33" label="Nguồn" />
                 <BooleanInput source="status" className="ra-field-33" label="Trạng thái" />

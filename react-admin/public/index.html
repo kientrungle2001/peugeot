@@ -19,7 +19,35 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
     <title>Quản trị Peugeot</title>
+    <script>
+    jQuery(document).ready(function ($) {
+        //
+        // Handles message from ResponsiveFilemanager
+        //
+        function OnMessage(e) {
+          var event = e.originalEvent;
+          // Make sure the sender of the event is trusted
+          if (event.data.sender === 'responsivefilemanager') {
+            if (event.data.field_id) {
+              var fieldID = event.data.field_id;
+              var url = event.data.url;
+              $('#' + fieldID).val(url).trigger('change');
+
+              // Delete handler of the message from ResponsiveFilemanager
+              $(window).off('message', OnMessage);
+            }
+          }
+        }
+
+        // Handler for a message from ResponsiveFilemanager
+        $('.iframe-btn').on('click', function () {
+          $(window).on('message', OnMessage);
+        });
+      });
+    </script>
   </head>
   <body>
     <noscript>

@@ -1,10 +1,11 @@
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
+import {peugeot_api_url} from 'peugeot_consts';
 
 export default (type, params) => {
     // called when the user attempts to log in
     if (type === AUTH_LOGIN) {
         const { username, password } = params;
-        const request = new Request('http://api.peugeot.vn/api/authenticate', {
+        const request = new Request(peugeot_api_url + '/authenticate', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),

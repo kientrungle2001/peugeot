@@ -30,6 +30,18 @@ import {
   CmsPostCreate, 
   CmsPostShow 
 } from './cms_posts';
+import {
+  CmsPostNewsList,
+  CmsPostNewsEdit,
+  CmsPostNewsCreate,
+  CmsPostNewsShow
+} from './cms_posts_news';
+import {
+  CmsPostPageList,
+  CmsPostPageEdit,
+  CmsPostPageCreate,
+  CmsPostPageShow
+} from './cms_posts_page';
 import { 
   CmsPostMetadataList, 
   CmsPostMetadataEdit, 
@@ -46,6 +58,54 @@ import {
   CatalogCategoryCreate, 
   CatalogCategoryShow 
 } from './catalog_categories';
+import {
+  CatalogCategoryRootList,
+  CatalogCategoryRootEdit,
+  CatalogCategoryRootCreate,
+  CatalogCategoryRootShow
+} from './catalog_categories_root';
+import {
+  CatalogCategorySlideshowList,
+  CatalogCategorySlideshowEdit,
+  CatalogCategorySlideshowCreate,
+  CatalogCategorySlideshowShow
+} from './catalog_categories_slideshow';
+import {
+  CatalogCategorySlideList,
+  CatalogCategorySlideEdit,
+  CatalogCategorySlideCreate,
+  CatalogCategorySlideShow
+} from './catalog_categories_slide';
+import {
+  CatalogCategoryMenuList,
+  CatalogCategoryMenuEdit,
+  CatalogCategoryMenuCreate,
+  CatalogCategoryMenuShow
+} from './catalog_categories_menu';
+import {
+  CatalogCategoryMenuItemList,
+  CatalogCategoryMenuItemEdit,
+  CatalogCategoryMenuItemCreate,
+  CatalogCategoryMenuItemShow
+} from './catalog_categories_menu_item';
+import {
+  CatalogCategoryProductList,
+  CatalogCategoryProductEdit,
+  CatalogCategoryProductCreate,
+  CatalogCategoryProductShow
+} from './catalog_categories_product';
+import {
+  CatalogCategoryProductTypeList,
+  CatalogCategoryProductTypeEdit,
+  CatalogCategoryProductTypeCreate,
+  CatalogCategoryProductTypeShow
+} from './catalog_categories_product_type';
+import {
+  CatalogCategoryProductAutoList,
+  CatalogCategoryProductAutoEdit,
+  CatalogCategoryProductAutoCreate,
+  CatalogCategoryProductAutoShow
+} from './catalog_categories_product_auto';
 import { 
   CatalogTypeList, 
   CatalogTypeEdit, 
@@ -91,6 +151,11 @@ import {
   EcommerceProductMetadataEdit, 
   EcommerceProductMetadataCreate 
 } from './ecommerce_product_metadatas';
+import {
+  EcommerceProductMetadataImageList,
+  EcommerceProductMetadataImageEdit,
+  EcommerceProductMetadataImageCreate
+} from './ecommerce_product_metadatas_image';
 import { 
   EcommerceSupplierList, 
   EcommerceSupplierEdit, 
@@ -127,7 +192,7 @@ import WebIcon from '@material-ui/icons/Web';
 import './App.css';
 import customRoutes from './custom_routes';
 import MyLayout from './MyLayout';
-
+import { peugeot_api_url } from 'peugeot_consts';
 
 
 const messages = {
@@ -145,7 +210,8 @@ const httpClient = (url, options = {}) => {
   options.headers.set('Authorization', `${token}`);
   return fetchUtils.fetchJson(url, options);
 }
-const dataProvider = jsonServerProvider('http://api.phutungpeugeot.com/api', httpClient);
+const dataProvider = jsonServerProvider(peugeot_api_url, httpClient);
+
 const uploadCapableDataProvider = addUploadCapabilities(dataProvider);
 const App = () => (
   <Admin 
@@ -165,6 +231,7 @@ const App = () => (
       show={AccountUserShow}
       label="Người dùng" title="Người dùng"
       options={{ label: 'Người dùng' }} />
+
     <Resource 
       name="catalog_categories" 
       list={CatalogCategoryList} 
@@ -173,6 +240,71 @@ const App = () => (
       show={CatalogCategoryShow} 
       label="Danh mục" title="Danh mục" 
       options={{ label: 'Danh mục' }} />
+    <Resource
+      name="catalog_categories_root"
+      list={CatalogCategoryRootList}
+      edit={CatalogCategoryRootEdit}
+      create={CatalogCategoryRootCreate}
+      show={CatalogCategoryRootShow}
+      label="Danh mục gốc" title="Danh mục gốc"
+      options={{ label: 'Danh mục gốc' }} />
+    <Resource
+      name="catalog_categories_menu"
+      list={CatalogCategoryMenuList}
+      edit={CatalogCategoryMenuEdit}
+      create={CatalogCategoryMenuCreate}
+      show={CatalogCategoryMenuShow}
+      label="Menu" title="Menu"
+      options={{ label: 'Menu' }} />
+    <Resource
+      name="catalog_categories_menu_item"
+      list={CatalogCategoryMenuItemList}
+      edit={CatalogCategoryMenuItemEdit}
+      create={CatalogCategoryMenuItemCreate}
+      show={CatalogCategoryMenuItemShow}
+      label="Menu Item" title="Menu Item"
+      options={{ label: 'Menu Item' }} />
+    <Resource
+      name="catalog_categories_slideshow"
+      list={CatalogCategorySlideshowList}
+      edit={CatalogCategorySlideshowEdit}
+      create={CatalogCategorySlideshowCreate}
+      show={CatalogCategorySlideshowShow}
+      label="Slideshow" title="Slideshow"
+      options={{ label: 'Slideshow' }} />
+    
+    <Resource
+      name="catalog_categories_slide"
+      list={CatalogCategorySlideList}
+      edit={CatalogCategorySlideEdit}
+      create={CatalogCategorySlideCreate}
+      show={CatalogCategorySlideShow}
+      label="Slide" title="Slide"
+      options={{ label: 'Slide' }} />
+    <Resource
+      name="catalog_categories_product"
+      list={CatalogCategoryProductList}
+      edit={CatalogCategoryProductEdit}
+      create={CatalogCategoryProductCreate}
+      show={CatalogCategoryProductShow}
+      label="Danh mục sản phẩm" title="Danh mục sản phẩm"
+      options={{ label: 'Danh mục sản phẩm' }} />
+    <Resource
+      name="catalog_categories_product_type"
+      list={CatalogCategoryProductTypeList}
+      edit={CatalogCategoryProductTypeEdit}
+      create={CatalogCategoryProductTypeCreate}
+      show={CatalogCategoryProductTypeShow}
+      label="Phụ tùng" title="Phụ tùng"
+      options={{ label: 'Phụ tùng' }} />
+    <Resource
+      name="catalog_categories_product_auto"
+      list={CatalogCategoryProductAutoList}
+      edit={CatalogCategoryProductAutoEdit}
+      create={CatalogCategoryProductAutoCreate}
+      show={CatalogCategoryProductAutoShow}
+      label="Ô tô" title="Ô tô"
+      options={{ label: 'Ô tô' }} />
     <Resource 
       name="catalog_types" 
       list={CatalogTypeList} 
@@ -201,6 +333,24 @@ const App = () => (
       icon={CreateIcon}
       label="Bài viết" title="Bài viết" 
       options={{ label: 'Bài viết' }} />
+    <Resource
+      name="cms_posts_news"
+      list={CmsPostNewsList}
+      edit={CmsPostNewsEdit}
+      create={CmsPostNewsCreate}
+      show={CmsPostNewsShow}
+      icon={CreateIcon}
+      label="Tin tức" title="Tin tức"
+      options={{ label: 'Tin tức' }} />
+      <Resource
+      name="cms_posts_page"
+      list={CmsPostPageList}
+      edit={CmsPostPageEdit}
+      create={CmsPostPageCreate}
+      show={CmsPostPageShow}
+      icon={CreateIcon}
+      label="Landing Page" title="Landing Page"
+      options={{ label: 'Landing Page' }} />
     <Resource 
       name="cms_post_metadatas" 
       list={CmsPostMetadataList} 
@@ -253,6 +403,14 @@ const App = () => (
       icon={StoreIcon} 
       label="Thuộc tính Sản phẩm" title="Thuộc tính Sản phẩm" 
       options={{ label: 'Thuộc tính sản phẩm' }} />
+      <Resource 
+      name="ecommerce_product_metadatas_image" 
+      list={EcommerceProductMetadataImageList} 
+      edit={EcommerceProductMetadataImageEdit} 
+      create={EcommerceProductMetadataImageCreate}
+      icon={StoreIcon} 
+      label="Ảnh Sản phẩm" title="Ảnh Sản phẩm" 
+      options={{ label: 'Ảnh sản phẩm' }} />
     <Resource 
       name="ecommerce_suppliers" 
       list={EcommerceSupplierList} 

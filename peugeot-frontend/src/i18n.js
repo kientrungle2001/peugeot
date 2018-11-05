@@ -1,9 +1,28 @@
 import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import {peugeot_api_url} from 'peugeot_constants';
+// import LanguageDetector from 'i18next-browser-languagedetector';
+import Backend from 'i18next-xhr-backend';
+
+console.log(peugeot_api_url);
 
 i18n
     //.use(LanguageDetector)
+    .use(Backend)
     .init({
+        loadPath: peugeot_api_url + '/locale_{{lng}}',
+        addPath: peugeot_api_url + '/locale_add_{{lng}}/{{ns}}',
+        allowMultiLoading: false,
+        crossDomain: true,
+        withCredentials: true,
+        fallbackLng: window.localStorage.getItem('i18nextLng') || 'vn',
+    })
+    /*
+    .init({
+        loadPath: '/locales/{{lng}}/{{ns}}.json',
+        addPath: 'locales/add/{{lng}}/{{ns}}',
+        allowMultiLoading: false,
+        crossDomain: true,
+        withCredentials: true,
         // we init with resources
         resources: {
             en: {
@@ -169,6 +188,8 @@ i18n
         react: {
             wait: true
         }
-    });
+    })*/
+    
+    ;
 
 export default i18n;

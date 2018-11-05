@@ -3,12 +3,13 @@ import {
     Filter, List, Edit, Create, Show,
     Datagrid, EditButton, ShowButton,
     RichTextField, BooleanField, TextField, ReferenceField, 
-    DisabledInput, LongTextInput, TextInput, ReferenceInput, SelectInput, BooleanInput,
+    DisabledInput, LongTextInput, TextInput, ReferenceInput, SelectInput, AutocompleteInput, BooleanInput,
     TabbedForm, FormTab,
     TabbedShowLayout, Tab,
     ReferenceManyField
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
+import UploadInput from 'UploadInput';
 
 var toolbar = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -32,7 +33,7 @@ const CatalogCategoryFilter = (props) => (
         <TextInput label="Ứng dụng" source="software_id" />
         <TextInput label="Website" source="site_id" />
         <ReferenceInput label="Danh mục cha" source="parent_id" reference="catalog_categories" allowEmpty={true}>
-            <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
+            <AutocompleteInput optionText="title" optionValue="id" allowEmpty={true} />
         </ReferenceInput>
     </Filter>
 );
@@ -75,7 +76,7 @@ export const CatalogCategoryEdit = (props) => (
                 <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
                 <ReferenceInput label="Danh mục cha" source="parent_id" reference="catalog_categories" allowEmpty={true} className="ra-field-33">
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
-                </ReferenceInput>    
+                </ReferenceInput>
                 <TextInput source="link" label="Đường dẫn" className="ra-field-33" />
                 <BooleanInput source="status" label="Trạng thái" className="ra-field-33" />
                 <TextInput source="tags" label="Tags" className="ra-field-33" />
@@ -97,6 +98,8 @@ export const CatalogCategoryEdit = (props) => (
                 </ReferenceInput>
                 <TextInput source="source" label="Nguồn" className="ra-field-33" />
                 <TextInput source="url" className="ra-field-33" />
+                <TextInput source="keywords" className="ra-field-33" />
+                <TextInput source="description" className="ra-field-33" />
                 <div class="clear-both">---------------------------</div>
             </FormTab>
         </TabbedForm>
@@ -135,6 +138,8 @@ export const CatalogCategoryCreate = (props) => (
                 </ReferenceInput>
                 <TextInput source="source" label="Nguồn" className="ra-field-33" />
                 <TextInput source="url" className="ra-field-33" />
+                <TextInput source="keywords" className="ra-field-33" />
+                <TextInput source="description" className="ra-field-33" />
                 <div class="clear-both">---------------------------</div>
             </FormTab>
         </TabbedForm>

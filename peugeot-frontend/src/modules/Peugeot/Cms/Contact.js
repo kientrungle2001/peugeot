@@ -1,18 +1,55 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { peugeot_api_url } from 'peugeot_constants';
+import Axios from 'axios';
+import { peugeot_api_url, peugeot_software, peugeot_site } from 'peugeot_constants';
 import { Container, Row, Col } from 'reactstrap';
 import { translate } from 'react-i18next';
-import { tt } from 'peugeot_language';
+import Recaptcha from 'react-recaptcha';
 
 class ModulePeugeotCmsContact extends Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.verifyCaptcha = this.verifyCaptcha.bind(this);
+    }
+    handleSubmit(event) {
+        const { t } = this.props;
+        event.preventDefault();
+        let formData = {
+            name: this.refs.name.value,
+            email: this.refs.email.value,
+            subject: this.refs.subject.value,
+            message: this.refs.message.value,
+            software_id: peugeot_software,
+            site_id: peugeot_site
+        };
+        var that = this;
+        if (that.captchaVerified) {
+            Axios.post(peugeot_api_url + '/catalog_addresses/contact', formData).then(function (resp) {
+                alert(t('thanks_for_contact'));
+                that.refs.name.value = '';
+                that.refs.email.value = '';
+                that.refs.subject.value = '';
+                that.refs.subject.message = '';
+            }).catch(function (err) {
+                console.log(err);
+            });
+        } else {
+            alert(t('captcha_required'));
+        }
+    }
+    verifyCaptcha(resp) {
+        this.captchaVerified = true;
+    }
+    componentDidMount() {
+        // this.captchaVerified = false;
+    }
     render() {
         const { t } = this.props;
         return (
             <div>
                 <Container>
                     <h1>{t('contact')}</h1>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <Row>
                             <Col md={4}>
                                 <div className="wpb_wrapper">
@@ -53,7 +90,7 @@ class ModulePeugeotCmsContact extends Component {
                                 </div>
                                 <div className="form-group">
                                     <label>{t('subject')}</label>
-                                    <input ref="title" className="form-control" />
+                                    <input ref="subject" className="form-control" />
                                 </div>
                                 <div className="form-group">
                                     <button className="btn btn-danger btn-block">{t('send')}</button>
@@ -62,14 +99,18 @@ class ModulePeugeotCmsContact extends Component {
                             <Col md={4}>
                                 <div className="form-group">
                                     <label>{t('message')}</label>
-                                    <textarea ref="content" className="form-control" style={{ height: '210px' }} />
+                                    <textarea ref="message" className="form-control" style={{ height: '140px' }} />
+                                </div>
+                                <div className="form-group">
+                                    <label>Captcha</label>
+                                    <Recaptcha sitekey="6LeYonUUAAAAALyqdXWB2Rnu2aa8iZk0vNiW8A4u" verifyCallback={this.verifyCaptcha} />
                                 </div>
                             </Col>
                         </Row>
                     </form>
 
                 </Container>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.068424625695!2d105.85303531404043!3d21.02994799311568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abea811a73c9%3A0x513cd582e3278ff2!2zMjdkIFBo4buRIEzDvSBUaMOhaSBU4buVLCBMw70gVGjDoWkgVOG7lSwgSG_DoG4gS2nhur9tLCBIw6AgTuG7mWkgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1539858089325" width="100%" height="450" frameborder="0" style={{ border: 0 }} allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.068424625695!2d105.85303531404043!3d21.02994799311568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abea811a73c9%3A0x513cd582e3278ff2!2zMjdkIFBo4buRIEzDvSBUaMOhaSBU4buVLCBMw70gVGjDoWkgVOG7lSwgSG_DoG4gS2nhur9tLCBIw6AgTuG7mWkgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1539858089325" width="100%" height="450" frameBorder="0" style={{ border: 0 }} allowFullScreen title="map"></iframe>
             </div>
         );
     }

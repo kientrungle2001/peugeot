@@ -7,6 +7,7 @@ import {
     DisabledInput, LongTextInput, TextInput, ReferenceInput, SelectInput, BooleanInput
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
+import UploadInput from 'UploadInput';
 
 const EcommerceOrderProductFilter = (props) => (
     <Filter {...props}>
@@ -58,7 +59,7 @@ export const EcommerceOrderProductEdit = (props) => (
                 <ReferenceInput label="Nhà cung cấp" source="supplier_id" reference="ecommerce_suppliers" allowEmpty={true}>
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="image" label="Ảnh" />
+                <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
                 <TextInput source="tags" label="Tags" />
                 <TextInput source="source" label="Nguồn" />
                 <BooleanInput source="status" label="Trạng thái" />
@@ -94,7 +95,7 @@ export const EcommerceOrderProductEdit = (props) => (
             <TextInput source="category_id" />
             <RichTextInput source="content" />
             <BooleanInput source="deleted" />
-            <TextInput source="image" />
+            <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
             <TextInput source="label" />
             <TextInput source="link" />
             <TextInput source="parent_id" />
@@ -127,7 +128,7 @@ export const EcommerceOrderProductCreate = (props) => (
                 <ReferenceInput label="Nhà cung cấp" source="supplier_id" reference="ecommerce_suppliers" allowEmpty={true}>
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
-                <TextInput source="image" label="Ảnh" />
+                <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
                 <TextInput source="tags" label="Tags" />
                 <TextInput source="source" label="Nguồn" />
                 <BooleanInput source="status" label="Trạng thái" />

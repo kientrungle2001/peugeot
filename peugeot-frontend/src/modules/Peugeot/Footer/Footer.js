@@ -1,8 +1,30 @@
 import React, { Component } from 'react';
 import ModulePeugeotFooterFloatbar from './Floatbar';
 import { translate } from 'react-i18next';
+import Axios from 'axios';
+import { peugeot_api_url, peugeot_software, peugeot_site } from 'peugeot_constants';
 
 class ModulePeugeotFooter extends Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleSubmit(event) {
+        const { t } = this.props;
+        event.preventDefault();
+        let formData = {
+            email: this.refs.email.value,
+            software_id: peugeot_software,
+            site_id: peugeot_site
+        };
+        var that = this;
+        Axios.post(peugeot_api_url + '/catalog_addresses/subscribe', formData).then(function (resp) {
+            alert(t('thanks_for_subscribe'));
+            that.refs.email.value = '';
+        }).catch(function (err) {
+            console.log(err);
+        });
+    }
     render() {
         const { t } = this.props;
         return (
@@ -91,9 +113,9 @@ class ModulePeugeotFooter extends Component {
                                         <h4 className="m-b15 text-uppercase">{t('newsletter_subscription')}</h4>
                                         <div className="dlab-separator"></div>
                                         <p className="m-tb20">{t('newsletter_message')}</p>
-                                        <form className="dlab-subscribe-form">
+                                        <form className="dlab-subscribe-form" onSubmit={this.handleSubmit}>
                                             <div className="input-group m-b15">
-                                                <input name="dzEmail" required="" className="form-control " type="email" placeholder={t('enter_your_email')} />
+                                                <input ref="email" name="dzEmail" required="" className="form-control " type="email" placeholder={t('enter_your_email')} />
                                             </div>
                                             <div className="input-group">
                                                 <button name="submit" type="submit" value="Submit" className="site-button btn-block">

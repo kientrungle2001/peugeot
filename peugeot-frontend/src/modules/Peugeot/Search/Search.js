@@ -6,8 +6,7 @@ import queryString from 'query-string';
 class ModulePeugeotSearch extends Component {
     componentWillMount() {
         const searchParams = queryString.parse(window.location.search);
-        this.state = searchParams;
-        this.setState(this.state);
+        this.setState(searchParams);
     }
     render() {
         

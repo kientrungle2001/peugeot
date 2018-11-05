@@ -91,6 +91,8 @@ export const EcommerceProductEdit = (props) => (
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
                 <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+                <TextInput source="keywords" className="ra-field-33" />
+                <TextInput source="description" className="ra-field-33" />
                 <div className="clear-both">------------------------------</div>
             </FormTab>
             {/*
@@ -99,7 +101,7 @@ export const EcommerceProductEdit = (props) => (
             <TextInput source="category_id" />
             <RichTextInput source="content" />
             <BooleanInput source="deleted" />
-            <TextInput source="image" />
+            <TextInput source="image" label="Đường dẫn ảnh" className="ra-field-33" />
             <TextInput source="label" />
             <TextInput source="link" />
             <TextInput source="parent_id" />
@@ -163,6 +165,8 @@ export const EcommerceProductCreate = (props) => (
                     <SelectInput optionText="title" optionValue="id" allowEmpty={true} />
                 </ReferenceInput>
                 <BooleanInput source="deleted" label="Đã xóa" className="ra-field-33" />
+                <TextInput source="keywords" className="ra-field-33" />
+                <TextInput source="description" className="ra-field-33" />
                 <div className="clear-both">------------------------------</div>
             </FormTab>
         </TabbedForm>
@@ -173,6 +177,7 @@ export const EcommerceProductShow = (props) => (
     <Show title={<EcommerceProductTitle />} {...props}>
         <TabbedShowLayout>
             <Tab label="Tổng quan">
+                <ImageField source="image" label="Đường dẫn ảnh" />
                 <TextField source="title" label="Tiêu đề" className="ra-field-33" />
                 <TextField source="alias" label="Bí danh" className="ra-field-33" />
                 <TextField source="sku" label="Mã sản phẩm" className="ra-field-33" />
@@ -184,7 +189,7 @@ export const EcommerceProductShow = (props) => (
                 <ReferenceField label="Nhà cung cấp" source="supplier_id" reference="ecommerce_suppliers" allowEmpty={true} className="ra-field-33">
                     <TextField source="title" />
                 </ReferenceField>
-                <TextField source="image" label="Đường dẫn ảnh" className="ra-field-33" />
+                
                 <TextField source="tags" label="Tag" className="ra-field-33" />
                 <TextField source="source" label="Nguồn" className="ra-field-33" />
                 <BooleanField source="status" label="Trạng thái" className="ra-field-33" />

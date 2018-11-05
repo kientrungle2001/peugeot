@@ -11,6 +11,7 @@ import {
     setSidebarVisibility,
 } from 'react-admin';
 import {Link} from 'react-router-dom';
+import MediaManager from 'MediaManager';
 
 const styles = theme => ({
     root: {
@@ -44,6 +45,14 @@ const menuItemStyle = {
     listStyleType: 'none',
     marginRight: '15px',
     display: 'inline-block'
+};
+const menuItemStyleMediaManager = {
+    float: 'left',
+    listStyleType: 'none',
+    marginRight: '15px',
+    display: 'inline-block',
+    position: 'relative',
+    top: '-10px'
 };
 class MyLayout extends Component {
     componentWillMount() {
@@ -83,6 +92,9 @@ class MyLayout extends Component {
                                 </li>
                                 <li style={menuItemStyle}>
                                     <Link to="/cms_posts">Bài viết</Link>
+                                </li>
+                                <li style={menuItemStyleMediaManager}>
+                                    <MediaManager />
                                 </li>
                             </ul>
                             {children}
