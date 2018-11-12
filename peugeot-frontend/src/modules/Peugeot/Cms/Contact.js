@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { peugeot_api_url, peugeot_software, peugeot_site } from 'peugeot_constants';
-import { Container, Row, Col } from 'reactstrap';
 import { translate } from 'react-i18next';
 import Recaptcha from 'react-recaptcha';
 
@@ -47,11 +46,11 @@ class ModulePeugeotCmsContact extends Component {
         const { t } = this.props;
         return (
             <div>
-                <Container>
+                <div className="container">
                     <h1>{t('contact')}</h1>
                     <form onSubmit={this.handleSubmit}>
-                        <Row>
-                            <Col md={4}>
+                        <div className="row">
+                            <div className="col-md-4">
                                 <div className="wpb_wrapper">
                                     <div className="wpb_text_column wpb_content_element ">
                                         <div className="wpb_wrapper">
@@ -78,8 +77,8 @@ class ModulePeugeotCmsContact extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </Col>
-                            <Col md={4}>
+                            </div>
+                            <div className="col-md-4">
                                 <div className="form-group">
                                     <label>{t('full_name')}</label>
                                     <input ref="name" className="form-control" />
@@ -95,8 +94,8 @@ class ModulePeugeotCmsContact extends Component {
                                 <div className="form-group">
                                     <button className="btn btn-danger btn-block">{t('send')}</button>
                                 </div>
-                            </Col>
-                            <Col md={4}>
+                            </div>
+                            <div className="col-md-4">
                                 <div className="form-group">
                                     <label>{t('message')}</label>
                                     <textarea ref="message" className="form-control" style={{ height: '140px' }} />
@@ -105,11 +104,11 @@ class ModulePeugeotCmsContact extends Component {
                                     <label>Captcha</label>
                                     <Recaptcha sitekey="6LeYonUUAAAAALyqdXWB2Rnu2aa8iZk0vNiW8A4u" verifyCallback={this.verifyCaptcha} />
                                 </div>
-                            </Col>
-                        </Row>
+                            </div>
+                        </div>
                     </form>
 
-                </Container>
+                </div>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.068424625695!2d105.85303531404043!3d21.02994799311568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abea811a73c9%3A0x513cd582e3278ff2!2zMjdkIFBo4buRIEzDvSBUaMOhaSBU4buVLCBMw70gVGjDoWkgVOG7lSwgSG_DoG4gS2nhur9tLCBIw6AgTuG7mWkgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1539858089325" width="100%" height="450" frameBorder="0" style={{ border: 0 }} allowFullScreen title="map"></iframe>
             </div>
         );
