@@ -42,28 +42,28 @@ class App extends Component {
               <ScrollToTopRoute path="/about" exact strict component={props => <PagePeugeotCmsPost {...props} itemId={9} />} />
               <ScrollToTopRoute path="/posts/:type/:id/:alias" exact strict component={function (args) {
               return (
-                <PagePeugeotCmsPost itemId={args.match.params.id} type={args.match.params.type} key={args.match.params.type + '-' + args.match.params.id}/>
+                <PagePeugeotCmsPost itemId={args.match.params.id} type={args.match.params.type} key={'post-' + args.match.params.type + '-' + args.match.params.id}/>
               );
             }} />
               <ScrollToTopRoute path="/category/:type/:id/:alias" exact strict component={function (args) {
               if (args.match.params.type === 'news') {
                 return (
-                  <PagePeugeotCategoryNews categoryId={parseInt(args.match.params.id, 10)} type={args.match.params.type} alias={args.match.params.alias} key={args.match.params.type + '-' + args.match.params.id} page={1} />
+                  <PagePeugeotCategoryNews categoryId={parseInt(args.match.params.id, 10)} type={args.match.params.type} alias={args.match.params.alias} key={'news-list-' + args.match.params.type + '-' + args.match.params.id} page={1} />
                 );
               } else if (args.match.params.type === 'product') {
                 return (
-                  <PagePeugeotCategoryProduct categoryId={parseInt(args.match.params.id, 10)} type={args.match.params.type} alias={args.match.params.alias} key={args.match.params.type + '-' + args.match.params.id} page={1} />
+                  <PagePeugeotCategoryProduct categoryId={parseInt(args.match.params.id, 10)} type={args.match.params.type} alias={args.match.params.alias} key={'product-list-'+args.match.params.type + '-' + args.match.params.id} page={1} />
                 );
               }
             }} />
               <ScrollToTopRoute path="/category/:type/:id/:alias/:page" exact strict component={function (args) {
                 if (args.match.params.type === 'news') {
                   return (
-                    <PagePeugeotCategoryNews categoryId={parseInt(args.match.params.id, 10)} type={args.match.params.type} alias={args.match.params.alias} key={args.match.params.type + '-' + args.match.params.id} page={parseInt(args.match.params.page, 10)} />
+                    <PagePeugeotCategoryNews categoryId={parseInt(args.match.params.id, 10)} type={args.match.params.type} alias={args.match.params.alias} key={'news-list-'+args.match.params.type + '-' + args.match.params.id + '-' + args.match.params.page} page={parseInt(args.match.params.page, 10)} />
                   );
                 } else if (args.match.params.type === 'product') {
                   return (
-                    <PagePeugeotCategoryProduct categoryId={parseInt(args.match.params.id, 10)} type={args.match.params.type} alias={args.match.params.alias} key={args.match.params.type + '-' + args.match.params.id} page={parseInt(args.match.params.page, 10)} />
+                    <PagePeugeotCategoryProduct categoryId={parseInt(args.match.params.id, 10)} type={args.match.params.type} alias={args.match.params.alias} key={'product-list-' + args.match.params.type + '-' + args.match.params.id + '-' + args.match.params.page} page={parseInt(args.match.params.page, 10)} />
                   );
                 }
               }} />
@@ -73,7 +73,7 @@ class App extends Component {
                     productId={parseInt(args.match.params.id, 10)} 
                     type={args.match.params.type} 
                     alias={args.match.params.alias} 
-                    key={args.match.params.type + '-' + args.match.params.id} 
+                    key={'product-list-' + args.match.params.type + '-' + args.match.params.id} 
                     categoryId={parseInt(args.match.params.categoryId, 10)}
                     categoryAlias={args.match.params.categoryAlias} />
                 );
@@ -85,7 +85,7 @@ class App extends Component {
                   productId={parseInt(args.match.params.id, 10)}
                   type={args.match.params.type}
                   alias={args.match.params.alias}
-                  key={args.match.params.type + '-' + args.match.params.id}
+                  key={'product-' + args.match.params.type + '-' + args.match.params.id}
                    />
               );
             }} />
