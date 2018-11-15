@@ -56,7 +56,7 @@ class ModulePeugeotEcommerceProductCategoryList extends Component {
                         {this.state && this.state.pages.map(
                             (page, index) => {
                                 return (
-                                    <li className={"page-item " + (page === this.props.page ? 'active' : '') + (page === 1 || page===this.state.pages.length-1 || (page < this.props.page + 3) && (page > this.props.page - 3) ? '': ' d-none')} key={'product-page-'+index}>
+                                    <li className={"page-item " + (page === this.props.page ? 'active' : '') + (page === 1 || page===this.state.pages.length || (page < this.props.page + 3) && (page > this.props.page - 3) ? '': ' d-none')} key={'product-page-'+index}>
                                         <Link className="page-link" to={'/category/product/' + this.props.categoryId + '/' + this.props.alias + '/' + page}>{page}</Link>
                                     </li>
                                 );
