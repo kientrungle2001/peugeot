@@ -16,7 +16,7 @@ class ModulePeugeotSearch extends Component {
             <form className="form-inline carousel-frm container" method="get" action="/search">
                 <div className="row">
                     <div className="form-group col-md-3">
-                        <a href="/" className="btn btn-search cl-frm-search"><img src="/img/icon_search_peugeot.png" alt="search" />{t('phutung_peugeot')}</a>
+                        <a href="/" className="btn btn-search cl-frm-search"><img src="/img/icon_search_peugeot.png" alt="search" style={{width:30, marginRight: 12}}/>{t('phutung_peugeot')}</a>
                     </div>
                     <div className="form-group col-md-3">
                         <input name="code" value={this.state && this.state.code} onChange={(evt) => { this.state.code = evt.target.value; this.setState(this.state); }} type="text" className="form-control" placeholder={t('ma_phutung')} />

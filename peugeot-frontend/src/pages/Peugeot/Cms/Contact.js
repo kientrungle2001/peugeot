@@ -13,7 +13,7 @@ class PagePeugeotCmsPost extends Component {
                 <Helmet>
                     <meta charSet="utf-8" />
                     <title>Liên hệ - Phụ tùng Peugeot</title>
-                    <link rel="canonical" href="http://demo.phutungpeugeot.com" />
+                    <link rel="canonical" href="http://phutungpeugeot.com" />
                 </Helmet>
                 <ModulePeugeotHeaderInner />
                 <main role="main">

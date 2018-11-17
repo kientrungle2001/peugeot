@@ -23,8 +23,8 @@
     "introduction": "Introduction",
     "recruitement": "Recruitement",
     "newsletter_message": "If you leave an email when a new product is updated, you will receive a notification immediately",
-    "vhp_address": "17/331 Tran Khat Chan, Thanh Nhan Ward, Hai Ba Trung District, Ha Noi City",
-    "vhp_phone": "Phone : 0800-123456 (24/7 Support Line)",
+    "vhp_address": "No.92, Lac Nghiep Street, Thanh Nhan Ward, Hai Ba Trung District, Ha Noi City",
+    "vhp_phone": "Phone : +84977.454.568 (24/7 Support Line)",
     "enter_your_email": "Enter Your Email",
     "choose_language": "Choose Language",
     "all": "All",
@@ -64,8 +64,8 @@
     "captcha_required": "You must enter captcha",
     "empty_cart_notify": "There is no item in the cart",
     "thanks_for_place_order": "Thanks for your order. We will call you soon!",
-    "showroom_address": " 27D Ly Thai To, Hoan Kiem, Hanoi",
-    "office_address": "No.30, Lane 65 Pham Ngoc Thach, Kim Lien, Dong Da, Hanoi",
-    "hotline_number": "0985.118.368",
-    "tel_number": "0243.373.8899"
+    "showroom_address": "",
+    "office_address": "No.92, Lac Nghiep Street, Thanh Nhan Ward, Hai Ba Trung District, Ha Noi City",
+    "hotline_number": "+84977.454.568",
+    "tel_number": "+84243.972.9888"
 }

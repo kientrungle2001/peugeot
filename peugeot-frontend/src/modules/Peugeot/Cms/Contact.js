@@ -53,8 +53,7 @@ class ModulePeugeotCmsContact extends Component {
                             <div className="col-md-4">
                                 <div className="wpb_wrapper">
                                     <div className="wpb_text_column wpb_content_element ">
-                                        <div className="wpb_wrapper">
-                                            <p>Showroom: {t('showroom_address')}</p>
+                                        <div className="wpb_wrapper">                                            
                                             <p>{t('office')}: {t('office_address')}</p>
                                         </div>
                                     </div>

@@ -23,8 +23,8 @@
     "introduction": "Giới thiệu",
     "recruitement": "Tuyển dụng",
     "newsletter_message": "Nếu bạn để lại email khi website cập nhật sản phẩm mới bạn sẽ nhận được thông báo ngay lập tức",
-    "vhp_address": "Số 17/331 Trần Khát Chân, P.Thanh Nhàn, Q.Hai Bà Trưng, TP.Hà Nội",
-    "vhp_phone": "Điện thoại: 0800-123456 (Đường dây hỗ trợ 24/7)",
+    "vhp_address": "Số 92, Phố Lạc Nghiệp, P. Thanh Nhàn, Q. Hai Bà Trưng, TP. Hà Nội",
+    "vhp_phone": "Điện thoại: 0977.454.568 (Đường dây hỗ trợ 24/7)",
     "enter_your_email": "Nhập email",
     "choose_language": "Chọn ngôn ngữ",
     "all": "Tất cả",
@@ -64,8 +64,9 @@
     "captcha_required": "Bạn cần phải nhập captcha",
     "empty_cart_notify": "Không có sản phẩm nào trong giỏ hàng",
     "thanks_for_place_order": "Cám ơn bạn đã đặt hàng. Chúng tôi sẽ sớm gọi lại cho bạn!",
-    "showroom_address": " 27D Lý Thái Tổ, Hoàn Kiếm, Hà Nội",
-    "office_address": "Số 30 Ngõ 65 Phạm Ngọc Thạch, Kim Liên, Đống Đa, Hà Nội",
-    "hotline_number": "0985.118.368",
-    "tel_number": "0243.373.8899"
+    "showroom_address": "",
+    "office_address": "Số 92, Phố Lạc Nghiệp, P. Thanh Nhàn, Q. Hai Bà Trưng, TP. Hà Nội",
+    "hotline_number": "0977.454.568",
+    "tel_number": "0243.972.9888",
+    "vhp_intro_text": "luôn mong muốn đem đến cho quý khách hàng những mặt hàng tốt nhất với dịch vụ hoàn hảo nhất."
 }
