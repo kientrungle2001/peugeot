@@ -24,6 +24,25 @@ class ModulePeugeotAccessariesCarousel extends Component {
             $owl.html($owl.find('.owl-stage-outer').html()).removeClass('owl-loaded');
             $owl.owlCarousel({
                 // your initial option here, again.
+                loop: true,
+                margin: 30,
+                nav: true,
+                dots: false,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    1024: {
+                        items: 3
+                    },
+                    1200: {
+                        items: 4
+                    }
+                }
             });
         }).catch(function(err){
             console.log(err);
