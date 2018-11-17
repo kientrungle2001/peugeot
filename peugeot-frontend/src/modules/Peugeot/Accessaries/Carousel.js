@@ -25,22 +25,28 @@ class ModulePeugeotAccessariesCarousel extends Component {
             $owl.owlCarousel({
                 // your initial option here, again.
                 loop: true,
-                margin: 30,
+                margin: 0,
                 nav: true,
                 dots: false,
+                autoplaySpeed: 1000,
+                navSpeed: 1000,
+                paginationSpeed: 1000,
+                slideSpeed: 1000,
                 navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                 responsive: {
                     0: {
                         items: 1
                     },
+
                     480: {
                         items: 2
                     },
-                    1024: {
-                        items: 3
+
+                    991: {
+                        items: 2
                     },
-                    1200: {
-                        items: 4
+                    1000: {
+                        items: 3
                     }
                 }
             });
@@ -51,12 +57,12 @@ class ModulePeugeotAccessariesCarousel extends Component {
     render() {
         const { t } = this.props;
         return (
-            <div className="section-full bg-img-fix dlab-new-work overlay-white-dark">
+            <div className="section-full bg-img-fix dlab-new-work overlay-white-dark" style={{ backgroundImage: 'url(/img/bg1.jpg)'}}>
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-3 col-sm-4  p-a0 no-of-item">
                             <div className="no-of-item-dtl">
-                                <img src="/img/Peugeot-logo.png" alt="Peugeot Logo" className="img-fluid" />
+                                <img src="/img/Peugeot-logo.png" alt="Peugeot Logo" className="img-fluid" style={{width: '205px'}} />
                                 <h3>{t('phutung_theoxe')}</h3>
                             </div>
                         </div>
