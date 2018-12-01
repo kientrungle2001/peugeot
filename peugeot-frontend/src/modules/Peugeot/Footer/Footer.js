@@ -48,13 +48,12 @@ class ModulePeugeotFooter extends Component {
                                     <div className="widget widget_services">
                                         <h4 className="m-b15 text-uppercase">{t('term_and_conditions')}</h4>
                                         <div className="dlab-separator"></div>
-                                        <ul>
-                                            <li><a href="new-car-latest.html">Latest Cars</a></li>
-                                            <li><a href="new-car-upcoming.html">Upcoming Cars</a></li>
-                                            <li><a href="used-car-search.html">Search Used Car</a></li>
-                                            <li><a href="used-car-sell.html">Car Sell</a></li>
-                                            <li><a href="compare-car.html">Compare Car</a></li>
-                                            <li><a href="car-review.html">Car Review</a></li>
+                                        <ul>    
+                                            <li><a href="">Chứng nhận kinh doanh</a></li>
+                                            <li><a href="">Hình thức thanh toán</a></li>
+                                            <li><a href="">Vận chuyển - Giao nhận</a></li>
+                                            <li><a href="">Chích sách bảo hành</a></li>
+                                            <li><a href="">Quy định bảo mật thông tin</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -129,16 +128,16 @@ class ModulePeugeotFooter extends Component {
                             <div className="clearfix">
                                 <ul className="full-social-icon clearfix">
                                     <li className="fb col-md-3 col-sm-6 col-xs-6 m-b30">
-                                        <a href="/"><i className=""></i> Share On Facebook </a>
+                                        <a href="/"><i className="">f</i> Share On Facebook </a>
                                     </li>
                                     <li className="tw col-md-3 col-sm-6 col-xs-6 m-b30">
-                                        <a href="/"><i className=""></i> Tweet About it </a>
+                                        <a href="/"><i className="">T</i> Tweet About it </a>
                                     </li>
                                     <li className="gplus col-md-3 col-sm-6 col-xs-6 m-b30">
-                                        <a href="/"><i className=""></i> Google Plus | 78+ </a>
+                                        <a href="/"><i className="">G+</i> Google Plus | 78+ </a>
                                     </li>
                                     <li className="linkd col-md-3 col-sm-6 col-xs-6 m-b30">
-                                        <a href="/"><i className=""></i> Linkedin | 21k </a>
+                                        <a href="/"><i className="">L</i> Linkedin | 21k </a>
                                     </li>
                                 </ul>
                             </div>
