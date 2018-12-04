@@ -11,7 +11,7 @@ class PagePeugeotHome extends Component {
                 <Helmet>
                     <meta charSet="utf-8" />
                     <title>Trang chủ - Phụ tùng Peugeot</title>
-                    <link rel="canonical" href="http://demo.phutungpeugeot.com" />
+                    <link rel="canonical" href="http://phutungpeugeot.com" />
                 </Helmet>
                 <ModulePeugeotHeader />
                 <main role="main">
